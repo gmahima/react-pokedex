@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from 'styled-components'
+import styled from 'styled-components'
 import Head from 'next/head'
 // const GlobalStyle = createGlobalStyle`
 //   body {
@@ -21,15 +21,15 @@ import Head from 'next/head'
 // `;
 const Heading = styled.h1`
 font-size: 4em;
-
-
 `
 
 const Layout = ({children}) => (
     <div>
-        {/* <GlobalStyle /> */}
 
-            <Heading>pokémon</Heading>
+            <Head>
+            <title>Pokémon</title>
+            </Head>
+            <Heading>Pokémon</Heading>
             <div>{children}</div>
 
         
