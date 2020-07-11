@@ -1,19 +1,29 @@
 import getAllPokemon from '../lib/data'
 import Layout from '../components/Layout'
-export default function Home(props) {
-  console.log(props)
+export default function Home({allPokemon}) {
+  console.log(allPokemon)
   return (
 
       <Layout>
-        <List items={props.allPokemon.results} renderItem={(p) => (<div>{p.name}</div>)}/>
+        {allPokemon.results.map((p, i) => <PokeCard p={p} key={p.name} id={i+1}/>)}
       </Layout>
 
 
   )
 }
-const List = ({items, renderItem}) => {
-  return (items.map(renderItem))
-}
+
+const PokeCard = ({p, id}) => (
+
+      <div>
+
+        <h4>{p.name}</h4>
+        {console.log(p)}
+      </div>
+
+)
+
+
+
 
 export async function getStaticProps () {
   const allPokemon = await getAllPokemon()
