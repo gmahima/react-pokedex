@@ -16,9 +16,14 @@ const Layout = ({children}) => (
         <Head>
             <title>pokémon</title>
         </Head>
+        <Heading>Pokémon</Heading>
         {children}
         <GlobalStyle />
+        
     </div>
 )
+const Heading = styled.h1`
+text-align: center;
 
+`
 export default Layout
