@@ -15,7 +15,7 @@ export default function Home({allPokemon}) {
 const PokeCard = ({p, id}) => (
 
       <div>
-
+        <img src={`/sprites/${id}.png`} />
         <h4>{p.name}</h4>
         {console.log(p)}
       </div>
