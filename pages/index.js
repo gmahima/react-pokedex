@@ -17,14 +17,11 @@ const Card = styled.div`
   border-radius: 10px;
   border-width: 1px;
   justify-items: center;
-
-  
-
 `
 
 
 export default function Home({allPokemon}) {
-  console.log(allPokemon)
+
   return (
 
       <Layout>
@@ -43,7 +40,7 @@ const PokeCard = ({p, id}) => (
       <Card>
         <img src={`/sprites/${id}.png`} />
         <h4>{p.name}</h4>
-        {console.log(p)}
+
       </Card>
 
 )
@@ -53,7 +50,7 @@ const PokeCard = ({p, id}) => (
 
 export async function getStaticProps () {
   const allPokemon = await getAllPokemon()
-  console.log(allPokemon)
+
   return {props: {allPokemon}};
 }
 
