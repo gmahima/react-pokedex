@@ -1,6 +1,4 @@
 import Layout from '../../components/Layout'
-import {getIds, getPokemonDetails} from '../../lib/data'
-
 export default function Details({data}) {
   return (
     <Layout>
@@ -14,19 +12,14 @@ export default function Details({data}) {
   )
 }
 
-export async function getStaticPaths() {
-  const paths = getIds()
-  return {
-    paths, fallback: false
-  }
-}
+export async function getServerSideProps(context) {
 
-export async function getStaticProps({params}) {
-  const data = await getPokemonDetails(params.id)
-  console.log(data)
+  const id = context.params.id
+  console.log(id)
+  const data = await fetch(`http://pokeapi.co/api/v2/pokemon/${id}`).then(res=> res.json())
   return {
     props: {
-      data: data.details
+      data: data
     }
   }
 }

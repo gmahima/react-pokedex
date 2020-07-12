@@ -1,4 +1,4 @@
-import {getAllPokemon} from '../lib/data'
+
 import Layout from '../components/Layout'
 import styled from 'styled-components'
 
@@ -46,12 +46,12 @@ const PokeCard = ({p, id}) => (
 
 )
 
-
-
-
-export async function getStaticProps () {
-  const allPokemon = await getAllPokemon()
-
-  return {props: {allPokemon}};
+export const getServerSideProps = async function () {
+  const data =await fetch('http://pokeapi.co/api/v2/pokemon?limit=3').then(res=>res.json())
+  return {
+   props: { allPokemon: data}
+  }
 }
+
+
 

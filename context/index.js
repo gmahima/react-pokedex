@@ -1,6 +1,10 @@
-const getAllPokemon = async () => {
-    const data = await fetch('http://pokeapi.co/api/v2/pokemon?limit=3').then(res=>res.json())
-    return data;
+import useSWR from 'swr'
+
+
+const getAllPokemon = () => {
+    // const {data,} = await fetch('http://pokeapi.co/api/v2/pokemon?limit=3').then(res=>res.json())
+    // return data;
+    const {data, error} = useSWR('http://pokeapi.co/api/v2/pokemon?limit=3', fetch)
 }
 
 const getIds = () => {
