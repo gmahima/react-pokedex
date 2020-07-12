@@ -19,21 +19,22 @@ import Head from 'next/head'
 //     font-family: Open-Sans, Helvetica, Sans-Serif;
 //   }
 // `;
-const Heading = styled.h1`
-font-size: 3em;
+
+const Container = styled.div`
+display: grid;
+justify-content: center;
 `
 
 const Layout = ({children}) => (
-    <div>
+    <Container>
 
             <Head>
             <title>Pokémon</title>
             </Head>
-            <Heading>Pokémon</Heading>
             <div>{children}</div>
 
         
-    </div>
+    </Container>
 )
 
 export default Layout

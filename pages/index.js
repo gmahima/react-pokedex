@@ -9,6 +9,9 @@ grid-gap: 30px;
 padding: 0 30px;
 justify-content: center;
 `
+const Heading = styled.h1`
+font-size: 3em;
+`
 
 const Card = styled.div`
   display: grid;
@@ -26,6 +29,7 @@ console.log(allPokemon)
   return (
 
       <Layout>
+        <Heading>Pokémon</Heading>
         <Container>
           {allPokemon.results.map((p, i) => <PokeCard p={p} key={p.name} id={i+1}/>)}
         </Container>
