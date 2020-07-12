@@ -20,13 +20,10 @@ import Head from 'next/head'
 //   }
 // `;
 
-const Container = styled.div`
-display: grid;
-justify-content: center;
-`
+
 
 const Layout = ({children}) => (
-    <Container>
+    <div>
 
             <Head>
             <title>Pokémon</title>
@@ -34,7 +31,7 @@ const Layout = ({children}) => (
             <div>{children}</div>
 
         
-    </Container>
+    </div>
 )
 
 export default Layout
