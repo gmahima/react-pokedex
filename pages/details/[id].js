@@ -8,6 +8,8 @@ text-transform: capitalize
 const Container = styled.div`
 display: grid;
 justify-items: center;
+justify-content: center;
+
 `
 
 const Card = styled.div`
@@ -23,6 +25,15 @@ const Card = styled.div`
   align-items: center;
   max-width: 400px;
   padding: 30px;
+  @media(max-width: 400px) {
+   margin: 10px 0;
+   max-width: 200px;
+   justify-self: center;
+
+    
+    
+  }
+
 
 `
 const List = styled.div`
@@ -34,6 +45,14 @@ const List = styled.div`
   border-width: 1px;
   padding: 30px;
   text-align: center;
+  @media(max-width: 400px) {
+    margin: 0 10px;
+    padding: 10px;
+    width: 60%;
+    
+    
+  }
+
 `
 
 const Span = styled.span`
@@ -47,6 +66,10 @@ const Para = styled.p`
 width: 1000px;
 display: flex;
 flex-wrap: wrap;
+@media(max-width: 400px) {
+  width: 100%;
+}
+
 `
 export default function Details({data, id}) {
   return (
