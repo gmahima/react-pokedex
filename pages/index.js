@@ -1,4 +1,4 @@
-import getAllPokemon from '../lib/data'
+import {getAllPokemon} from '../lib/data'
 import Layout from '../components/Layout'
 import styled from 'styled-components'
 
@@ -17,11 +17,12 @@ const Card = styled.div`
   border-radius: 10px;
   border-width: 1px;
   justify-items: center;
+
 `
 
 
 export default function Home({allPokemon}) {
-
+console.log(allPokemon)
   return (
 
       <Layout>

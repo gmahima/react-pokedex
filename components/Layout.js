@@ -20,7 +20,7 @@ import Head from 'next/head'
 //   }
 // `;
 const Heading = styled.h1`
-font-size: 4em;
+font-size: 3em;
 `
 
 const Layout = ({children}) => (
