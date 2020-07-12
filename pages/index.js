@@ -1,6 +1,7 @@
 import {getAllPokemon} from '../lib/data'
 import Layout from '../components/Layout'
 import styled from 'styled-components'
+import Link from 'next/link'
 
 const Container = styled.div`
 display: grid;
@@ -20,9 +21,15 @@ const Card = styled.div`
   border-radius: 10px;
   border-width: 1px;
   justify-items: center;
-
+  &:hover{
+    border-color: teal;
+    color: teal;
+  }
 `
-
+const A = styled.a`
+color: black;
+text-decoration: none;
+`
 
 export default function Home({allPokemon}) {
 console.log(allPokemon)
@@ -31,7 +38,7 @@ console.log(allPokemon)
       <Layout>
         <Heading>Pokémon</Heading>
         <Container>
-          {allPokemon.results.map((p, i) => <PokeCard p={p} key={p.name} id={i+1}/>)}
+          {allPokemon.results.map((p, i) => <Link href='/details/[id]' as={`details/${i+1}`} ><A><PokeCard p={p} key={p.name} id={i+1}/></A></Link>)}
         </Container>
         
       </Layout>
