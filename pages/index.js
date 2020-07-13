@@ -1,4 +1,4 @@
-import {getAllPokemon} from '../lib/data'
+
 import Layout from '../components/Layout'
 import styled from 'styled-components'
 import Link from 'next/link'
@@ -60,9 +60,4 @@ const PokeCard = ({p, id}) => (
 
 
 
-export async function getStaticProps () {
-  const allPokemon = await getAllPokemon()
-
-  return {props: {allPokemon}};
-}
 

@@ -1,77 +1,5 @@
 import Layout from '../../components/Layout'
-import {getIds, getPokemonDetails} from '../../lib/data'
-import styled from 'styled-components'
-const Heading = styled.h1`
-font-size: 3em;
-text-transform: capitalize
-`
-const Container = styled.div`
-display: grid;
-justify-items: center;
-justify-content: center;
-
-`
-
-const Card = styled.div`
-  margin: 50px auto;
-  display: grid;
-  box-shadow: 10px 10px 50px #DDD;
-  border-style: solid;
-  border-radius: 10px;
-  border-width: 5px;
-  justify-items: center;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  max-width: 400px;
-  padding: 30px;
-  @media(max-width: 400px) {
-   margin: 10px 0;
-   max-width: 200px;
-   justify-self: center;
-
-    
-    
-  }
-
-
-`
-const List = styled.div`
-  margin: 0 20px;
-  display: grid;
-  box-shadow: 10px 10px 50px #DDD;
-  border-style: solid;
-  border-radius: 10px;
-  border-width: 1px;
-  padding: 30px;
-  text-align: center;
-  @media(max-width: 400px) {
-    margin: 0 10px;
-    padding: 10px;
-    width: 60%;
-    
-    
-  }
-
-`
-
-const Span = styled.span`
-border: 1px solid #eee;
-margin: 5px;
-
-
-`
-
-const Para = styled.p`
-width: 1000px;
-display: flex;
-flex-wrap: wrap;
-@media(max-width: 400px) {
-  width: 100%;
-}
-
-`
-export default function Details({data, id}) {
+export default function Details({data}) {
   return (
 
     <Layout>
@@ -94,19 +22,3 @@ export default function Details({data, id}) {
   )
 }
 
-export async function getStaticPaths() {
-  const paths = getIds()
-  return {
-    paths, fallback: false
-  }
-}
-
-export async function getStaticProps({params}) {
-  const data = await getPokemonDetails(params.id)
-  return {
-    props: {
-      id: params.id,
-      data: data.details
-    }
-  }
-}
