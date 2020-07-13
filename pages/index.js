@@ -1,7 +1,6 @@
 
-import Layout from '../components/Layout'
 import styled from 'styled-components'
-import Link from 'next/link'
+
 
 const Container = styled.div`
 display: grid;
@@ -31,21 +30,7 @@ color: black;
 text-decoration: none;
 `
 
-export default function Home({allPokemon}) {
-console.log(allPokemon)
-  return (
 
-      <Layout>
-        <Heading>Pokémon</Heading>
-        <Container>
-          {allPokemon.results.map((p, i) => <Link href='/details/[id]' as={`details/${i+1}`} ><A><PokeCard p={p} key={p.name} id={i+1}/></A></Link>)}
-        </Container>
-        
-      </Layout>
-
-
-  )
-}
 
 const PokeCard = ({p, id}) => (
 
