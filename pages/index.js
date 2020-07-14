@@ -2,13 +2,14 @@ import {getAllPokemon} from '../lib/data'
 import Layout from '../components/Layout'
 import styled from 'styled-components'
 import Link from 'next/link'
-
+import tw from 'twin.macro'
 const Name = styled.h4`
 
 `
 
 const Container = styled.div`
 display: grid;
+${tw `bg-black`}
 grid-template-columns: repeat(auto-fit, minmax(100px, 150px));
 grid-gap: 30px;
 padding: 0 30px;
