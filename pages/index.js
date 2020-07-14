@@ -3,6 +3,10 @@ import Layout from '../components/Layout'
 import styled from 'styled-components'
 import Link from 'next/link'
 
+const Name = styled.h4`
+
+`
+
 const Container = styled.div`
 display: grid;
 grid-template-columns: repeat(auto-fit, minmax(100px, 150px));
@@ -12,18 +16,20 @@ justify-content: center;
 `
 const Heading = styled.h1`
 font-size: 3em;
+
 `
 
 const Card = styled.div`
+font-weight: normal;
   display: grid;
   box-shadow: 3px 3px 20px #DDD;
   border-style: solid;
-  border-radius: 10px;
   border-width: 1px;
   justify-items: center;
   &:hover{
     border-color: teal;
     color: teal;
+    cursor: pointer
   }
 `
 const A = styled.a`
@@ -38,7 +44,7 @@ console.log(allPokemon)
       <Layout>
         <Heading>Pokémon</Heading>
         <Container>
-          {allPokemon.results.map((p, i) => <Link href='/details/[id]' as={`details/${i+1}`} ><A><PokeCard p={p} key={p.name} id={i+1}/></A></Link>)}
+          {allPokemon.results.map((p, i) => <Link href='/details/[id]' as={`details/${i+1}`} key={p.name}><A><PokeCard p={p}  id={i+1}/></A></Link>)}
         </Container>
         
       </Layout>
@@ -51,7 +57,7 @@ const PokeCard = ({p, id}) => (
 
       <Card>
         <img src={`/sprites/${id}.png`} />
-        <h4>{p.name}</h4>
+        <Name>{p.name}</Name>
 
       </Card>
 

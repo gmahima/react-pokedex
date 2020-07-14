@@ -1,14 +1,32 @@
 import Layout from '../../components/Layout'
 import {getIds, getPokemonDetails} from '../../lib/data'
 import styled from 'styled-components'
+
+const Title = styled.div`
+display: flex;
+align-items: center;
+
+
+`
 const Heading = styled.h1`
+
 font-size: 3em;
-text-transform: capitalize
+text-transform: capitalize;
+@media(max-width: 500px) {
+  font-size: 2em;
+  font-weight: 600;
+}
 `
 const Container = styled.div`
 display: grid;
 justify-items: center;
 justify-content: center;
+align-content: center;
+min-height: 100vh;
+@media(max-width: 500px) {
+  margin: 10px 10px;
+  justify-content: start;
+ }
 
 `
 
@@ -17,20 +35,17 @@ const Card = styled.div`
   display: grid;
   box-shadow: 10px 10px 50px #DDD;
   border-style: solid;
-  border-radius: 10px;
-  border-width: 5px;
+  border-width: 2px;
   justify-items: center;
   justify-content: center;
   align-content: center;
   align-items: center;
   max-width: 400px;
   padding: 30px;
-  @media(max-width: 400px) {
+  @media(max-width: 500px) {
    margin: 10px 0;
    max-width: 200px;
    justify-self: center;
-
-    
     
   }
 
@@ -41,14 +56,13 @@ const List = styled.div`
   display: grid;
   box-shadow: 10px 10px 50px #DDD;
   border-style: solid;
-  border-radius: 10px;
   border-width: 1px;
   padding: 30px;
   text-align: center;
-  @media(max-width: 400px) {
+  @media(max-width: 500px) {
     margin: 0 10px;
     padding: 10px;
-    width: 60%;
+
     
     
   }
@@ -58,15 +72,18 @@ const List = styled.div`
 const Span = styled.span`
 border: 1px solid #eee;
 margin: 5px;
-
-
+padding:  5px 10px;
+border-radius: 5px;
+&:hover {
+  border-color: #999
+}
 `
 
 const Para = styled.p`
 width: 1000px;
 display: flex;
 flex-wrap: wrap;
-@media(max-width: 400px) {
+@media(max-width: 500px) {
   width: 100%;
 }
 
@@ -76,10 +93,8 @@ export default function Details({data, id}) {
 
     <Layout>
       <Container>
-      <Card>
-        <img src={`/sprites/${id}.png`} />
-        <Heading>{data.name}</Heading> 
-      </Card>
+        <Title><Heading>{data.name}</Heading><img src={`/sprites/${id}.png`} /></Title>
+
       <List>
         <h2>Attacks</h2>
         <Para>
