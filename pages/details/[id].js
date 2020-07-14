@@ -24,7 +24,7 @@ justify-content: center;
 align-content: center;
 min-height: 100vh;
 @media(max-width: 500px) {
-  margin: 10px 10px;
+  margin: 10px 10px 40px 10px;
   justify-content: start;
  }
 

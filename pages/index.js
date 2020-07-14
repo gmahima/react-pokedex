@@ -13,28 +13,39 @@ grid-template-columns: repeat(auto-fit, minmax(100px, 150px));
 grid-gap: 30px;
 padding: 0 30px;
 justify-content: center;
+margin-bottom: 40px;
 `
 const Heading = styled.h1`
 font-size: 3em;
-
+padding: 60px 0;
+@media (max-height: 500px) {
+  padding: 10px 0;
+}
 `
 
 const Card = styled.div`
 font-weight: normal;
   display: grid;
-  box-shadow: 3px 3px 20px #DDD;
+  box-shadow: 0px 0px 8px #CCC;
   border-style: solid;
   border-width: 1px;
   justify-items: center;
+  border-radius: 15px;
+  border-color: #DDD;
+
   &:hover{
-    border-color: teal;
-    color: teal;
+    border-color: black;
+    border-width: 1px;
+
+    color: black;
     cursor: pointer
   }
 `
 const A = styled.a`
 color: black;
 text-decoration: none;
+
+
 `
 
 export default function Home({allPokemon}) {
@@ -42,7 +53,7 @@ console.log(allPokemon)
   return (
 
       <Layout>
-        <Heading>Pokémon</Heading>
+        <Heading>Pokédex</Heading>
         <Container>
           {allPokemon.results.map((p, i) => <Link href='/details/[id]' as={`details/${i+1}`} key={p.name}><A><PokeCard p={p}  id={i+1}/></A></Link>)}
         </Container>
