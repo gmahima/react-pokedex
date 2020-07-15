@@ -1,29 +1,13 @@
 import styled from 'styled-components'
 import Head from 'next/head'
-// const GlobalStyle = createGlobalStyle`
-//   body {
-//     padding: 0;
-//     margin: 0;
-//     text-align: center;
-//     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-//       Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-//       sans-serif;
+import tw from 'twin.macro'
 
-//   }
-// `
-// const GlobalStyle = createGlobalStyle`
-//   body {
-//     margin: 0;
-//     padding: 0;
-//     background: teal;
-//     font-family: Open-Sans, Helvetica, Sans-Serif;
-//   }
-// `;
-
-
+const Container = styled.div`
+${tw ` h-screen`}
+`
 
 const Layout = ({children}) => (
-    <div>
+    <Container>
 
             <Head>
             <title>Pokémon</title>
@@ -31,7 +15,7 @@ const Layout = ({children}) => (
             <div>{children}</div>
 
         
-    </div>
+    </Container>
 )
 
 export default Layout

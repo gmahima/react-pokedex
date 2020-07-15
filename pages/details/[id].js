@@ -43,7 +43,7 @@ const Card = styled.div`
   max-width: 400px;
   padding: 30px;
   @media(max-width: 500px) {
-   margin: 10px 0;
+   padding: 10px 0;
    max-width: 200px;
    justify-self: center;
     

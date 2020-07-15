@@ -9,19 +9,20 @@ const Name = styled.h4`
 
 const Container = styled.div`
 display: grid;
-${tw `bg-black`}
 grid-template-columns: repeat(auto-fit, minmax(100px, 150px));
-grid-gap: 30px;
-padding: 0 30px;
+grid-gap: 2em;
 justify-content: center;
-margin-bottom: 40px;
+${tw`
+px-8
+pb-2
+`}
+
 `
-const Heading = styled.h1`
-font-size: 3em;
-padding: 60px 0;
-@media (max-height: 500px) {
-  padding: 10px 0;
-}
+const HeadingDiv = styled.div`
+${tw `
+sm:text-5xl sm:py-16 py-2 text-4xl
+bg-red-100
+`}
 `
 
 const Card = styled.div`
@@ -54,8 +55,9 @@ console.log(allPokemon)
   return (
 
       <Layout>
-        <Heading>Pokédex</Heading>
+        <HeadingDiv><h1>Pokédex</h1></HeadingDiv>
         <Container>
+          {console.log(allPokemon.results)}
           {allPokemon.results.map((p, i) => <Link href='/details/[id]' as={`details/${i+1}`} key={p.name}><A><PokeCard p={p}  id={i+1}/></A></Link>)}
         </Container>
         
