@@ -50,8 +50,8 @@ text-decoration: none;
 
 `
 
-export default function Home({allPokemon}) {
-console.log(allPokemon)
+export default function Home({allPokemon, data}) {
+console.log(data)
   return (
 
       <Layout>
@@ -83,6 +83,6 @@ const PokeCard = ({p, id}) => (
 export async function getStaticProps () {
   
   const allPokemon = await getAllPokemon()
-  return {props: {allPokemon}};
+  return {props: {allPokemon:{results: []}, data: allPokemon}};
 }
 
