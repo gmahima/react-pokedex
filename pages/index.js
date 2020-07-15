@@ -82,7 +82,7 @@ const PokeCard = ({p, id}) => (
 
 export async function getStaticProps () {
   
-
+  const allPokemon = await getAllPokemon()
   return {props: {allPokemon}};
 }
 

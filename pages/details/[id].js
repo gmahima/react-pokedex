@@ -89,6 +89,7 @@ flex-wrap: wrap;
 
 `
 export default function Details({data, id}) {
+  console.log({data, id})
   return (
 
     <Layout>
