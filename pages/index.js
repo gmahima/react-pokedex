@@ -71,8 +71,19 @@ ${props => {
       switch(props.type) {
         case 'grass': return (tw`bg-green-100`)
         case 'fire': return (tw`bg-red-100`)
-        case 'water': return (tw`bg-blue-100`)
+        case 'water': return (tw`bg-indigo-100`)
         case 'bug': return (tw`bg-teal-100`)
+        case 'poison': return (tw`bg-purple-200`)
+        case 'flying': return (tw`bg-blue-100`)
+        case 'electric': return (tw`bg-yellow-300`)
+        case 'fairy': return(tw`bg-pink-200`)
+        case 'ground': return(tw`bg-orange-300`)
+        case 'psychic' : return (tw`bg-purple-400`)
+        case 'fighting' : return (tw`bg-red-600`)
+        case 'rock' : return (tw`bg-gray-300`)
+        case 'ghost': return (tw`bg-green-400`)
+        case 'dragon': return (tw`bg-red-300`)        
+
         default: return (tw`bg-gray-100`)
       }
     }

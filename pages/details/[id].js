@@ -1,6 +1,7 @@
 import Layout from '../../components/Layout'
 import {getIds, getPokemonDetails} from '../../lib/data'
 import styled from 'styled-components'
+import tw from 'twin.macro'
 
 const Title = styled.div`
 display: flex;
