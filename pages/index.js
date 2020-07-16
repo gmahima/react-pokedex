@@ -101,6 +101,10 @@ const CardContent = styled.div`
   ${tw`
    py-4 px-5 rounded-lg
   `}
+  @media(min-width: 640px) {
+    align-content: center;
+  }
+  
 `
 const CardInfo = styled.div`
 #${tw`my-5 flex justify-start items-center`}
