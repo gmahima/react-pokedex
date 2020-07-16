@@ -12,7 +12,7 @@ text-decoration: none;
 `
 const Container = styled.div`
 display: grid;
-grid-template-columns: repeat(auto-fit, minmax(100px, 300px));
+grid-template-columns: repeat(auto-fit, minmax(6em, 15em));
 grid-gap: 3em;
 justify-content: center;
 ${tw`
@@ -66,21 +66,11 @@ bg-white bg-opacity-75 rounded-full m-3
 // `
 const Card = styled.div`
 ${tw`shadow-xl
-  text-white
   cursor-pointer
   rounded-lg
   py-2 px-2
 `}
-${props => {
 
-  switch(props.type) {
-    case 'grass': return (tw`bg-green-700`)
-    case 'fire': return (tw`bg-red-700`)
-    case 'water': return (tw`bg-blue-700`)
-    case 'bug': return (tw`bg-teal-700`)
-    default: return (tw`bg-black`)
-  }
-}}
 `
 const Name = styled.h4`
 
