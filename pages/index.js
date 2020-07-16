@@ -24,6 +24,9 @@ ${tw`
 px-8
 pb-2
 `}
+@media (min-width: 640px) {
+  grid-template-columns: repeat(auto-fit, minmax(10em, 25em))
+}
 
 `
 
@@ -33,23 +36,16 @@ ${tw`shadow-xl
   cursor-pointer
   rounded-lg
 `}
-@media(min-heigt: 640px) {
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
+@media(min-width: 640px) {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
 }
 `
-// const Card = styled.div `
-// display: grid;
-// grid-template-columns: 2fr 1fr;
-// ${tw`shadow-xl
-//   cursor-pointer
-//   rounded-lg
-// `}
-// `
+
 
 const ImgDiv = styled.div`
 ${tw`
- w-full p-10 sm:w-full 
+ w-full p-10 sm:w-full sm:px-0  
 `}
 `
 const Img = styled.img`
@@ -96,7 +92,7 @@ ${props => {
 // `
 
 const Name = styled.h4`
-${tw `font-bold text-gray-600 text-left`}
+${tw `font-bold text-gray-600 text-left text-xl sm:text-2xl capitalize`}
 `
 const CardContent = styled.div`
   display: grid;
@@ -107,11 +103,11 @@ const CardContent = styled.div`
   `}
 `
 const CardInfo = styled.div`
-#${tw`my-5 flex justify-start`}
+#${tw`my-5 flex justify-start items-center`}
 
 `
 const Info = styled.span `
-${tw ` m-1 py-1 px-2 rounded-lg bg-gray-100 text-center text-gray-600`}
+${tw ` m-1 py-1 px-2 rounded-lg bg-gray-100 text-center align-middle text-gray-600`}
 
 `
 
