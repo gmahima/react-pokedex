@@ -35,13 +35,27 @@ display: grid;
 ${tw`shadow-md border border-gray-200
   cursor-pointer
   rounded-lg
+  hover:shadow-xl
+
 `}
 @media(min-width: 640px) {
   display: grid;
   grid-template-columns: 1fr 2fr;
 }
-`
 
+
+}
+`
+// ${props => {
+
+//   switch(props.type) {
+//     case 'grass': return (tw`hover:bg-green-100`)
+//     case 'fire': return (tw`hover:bg-red-100`)
+//     case 'water': return (tw`hover:bg-blue-100`)
+//     case 'bug': return (tw`hover:bg-teal-100`)
+//     default: return (tw`hover:bg-gray-100`)
+//   }
+// }
 
 const ImgDiv = styled.div`
 ${tw`
@@ -50,7 +64,7 @@ ${tw`
 `
 const Img = styled.img`
 ${tw`
- bg-opacity-75 w-full rounded-full
+ w-full rounded-full
 `}
 ${props => {
 
@@ -113,6 +127,7 @@ const CardInfo = styled.div`
 const Info = styled.span `
 ${tw ` m-1 py-1 px-2 rounded-lg bg-gray-100 text-center align-middle text-gray-600`}
 
+
 `
 
 
@@ -134,7 +149,7 @@ export default function Home({allPokemon}) {
 
 const PokeCard = ({p, id}) => (
 
-      <Card >
+      <Card type={p.types[0].type.name}>
           <ImgDiv>
             <Img src={`/sprites/${id}.png`} type={p.types[0].type.name}/>
           </ImgDiv>
