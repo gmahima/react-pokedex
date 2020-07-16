@@ -18,21 +18,21 @@ text-decoration: none;
 const Container = styled.div`
 display: grid;
 grid-template-columns: repeat(auto-fit, minmax(6em, 17em));
-grid-gap: 3em;
+grid-gap: 2em;
 justify-content: center;
 ${tw`
-px-8
-pb-2
+px-8 sm:px-10
+mb-10
 `}
 @media (min-width: 640px) {
-  grid-template-columns: repeat(auto-fit, minmax(10em, 25em))
+  grid-template-columns: repeat(auto-fit, minmax(10em, 20em))
 }
 
 `
 
 const Card = styled.div`
 display: grid;
-${tw`shadow-xl
+${tw`shadow-md border border-gray-200
   cursor-pointer
   rounded-lg
 `}
@@ -107,7 +107,7 @@ const CardContent = styled.div`
   
 `
 const CardInfo = styled.div`
-#${tw`my-5 flex justify-start items-center`}
+#${tw`my-5 flex justify-start items-center flex-wrap`}
 
 `
 const Info = styled.span `
@@ -141,8 +141,9 @@ const PokeCard = ({p, id}) => (
           <CardContent>
             <Name>{p.name}</Name>     
             <CardInfo>
-              <Info>{p.base_experience + " xp"}</Info>
+              
               {p.types.map(t => <Info>{t.type.name}</Info>)}
+              <Info>{"base-xp " + p.base_experience }</Info>
             </CardInfo>      
           </CardContent>
       </Card>
