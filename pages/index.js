@@ -28,23 +28,45 @@ pb-2
 `
 
 const Card = styled.div`
+display: grid;
 ${tw`shadow-xl
   cursor-pointer
   rounded-lg
-
 `}
-
+@media(min-heigt: 640px) {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+}
 `
+// const Card = styled.div `
+// display: grid;
+// grid-template-columns: 2fr 1fr;
+// ${tw`shadow-xl
+//   cursor-pointer
+//   rounded-lg
+// `}
+// `
 
 const ImgDiv = styled.div`
-display: grid;
-place-content: center;
-place-items : stretch;
+${tw`
+ w-full p-10 sm:w-full 
+`}
 `
 const Img = styled.img`
 ${tw`
-bg-gray-100 bg-opacity-75 w-full p-10 
+ bg-opacity-75 w-full rounded-full
 `}
+${props => {
+
+      switch(props.type) {
+        case 'grass': return (tw`bg-green-100`)
+        case 'fire': return (tw`bg-red-100`)
+        case 'water': return (tw`bg-blue-100`)
+        case 'bug': return (tw`bg-teal-100`)
+        default: return (tw`bg-gray-100`)
+      }
+    }
+  }
 `
 // const Card2 = styled.div`
 //   display: grid;
@@ -112,17 +134,17 @@ export default function Home({allPokemon}) {
 
 const PokeCard = ({p, id}) => (
 
-      <Card type={p.types[0].type.name}>
-
-            <Img src={`/sprites/${id}.png`} />
-  
-        <CardContent>
-        <Name>{p.name}</Name>     
-          <CardInfo>
-          <Info>{p.base_experience + " xp"}</Info>
-          {p.types.map(t => <Info>{t.type.name}</Info>)}
-          </CardInfo>      
-        </CardContent>
+      <Card >
+          <ImgDiv>
+            <Img src={`/sprites/${id}.png`} type={p.types[0].type.name}/>
+          </ImgDiv>
+          <CardContent>
+            <Name>{p.name}</Name>     
+            <CardInfo>
+              <Info>{p.base_experience + " xp"}</Info>
+              {p.types.map(t => <Info>{t.type.name}</Info>)}
+            </CardInfo>      
+          </CardContent>
       </Card>
 
 )
