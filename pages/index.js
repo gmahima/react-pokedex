@@ -35,7 +35,7 @@ display: grid;
 ${tw`shadow-md border border-gray-200
   cursor-pointer
   rounded-lg
-  hover:shadow-xl
+  hover:shadow-sm
 
 `}
 @media(min-width: 640px) {
