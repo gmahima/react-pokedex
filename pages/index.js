@@ -4,6 +4,11 @@ import styled from 'styled-components'
 import Link from 'next/link'
 import tw from 'twin.macro'
 
+const HeadingDiv = styled.div`
+${tw `
+sm:text-5xl sm:py-16 py-2 text-4xl
+`}
+`
 const A = styled.a`
 color: black;
 text-decoration: none;
@@ -12,7 +17,7 @@ text-decoration: none;
 `
 const Container = styled.div`
 display: grid;
-grid-template-columns: repeat(auto-fit, minmax(6em, 15em));
+grid-template-columns: repeat(auto-fit, minmax(6em, 17em));
 grid-gap: 3em;
 justify-content: center;
 ${tw`
@@ -21,21 +26,24 @@ pb-2
 `}
 
 `
-const HeadingDiv = styled.div`
-${tw `
-sm:text-5xl sm:py-16 py-2 text-4xl
+
+const Card = styled.div`
+${tw`shadow-xl
+  cursor-pointer
+  rounded-lg
 
 `}
+
 `
+
 const ImgDiv = styled.div`
 display: grid;
 place-content: center;
-place-items : center;
+place-items : stretch;
 `
 const Img = styled.img`
-
 ${tw`
-bg-white bg-opacity-75 rounded-full m-3
+bg-gray-100 bg-opacity-75 w-full p-10 
 `}
 `
 // const Card2 = styled.div`
@@ -64,33 +72,24 @@ bg-white bg-opacity-75 rounded-full m-3
 //     }
 //   }}
 // `
-const Card = styled.div`
-${tw`shadow-xl
-  cursor-pointer
-  rounded-lg
-  py-2 px-2
-`}
 
-`
 const Name = styled.h4`
-
+${tw `font-bold text-gray-600 text-left`}
 `
 const CardContent = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto;
-
-
   ${tw`
-   border border-white py-0 px-0 rounded-lg
+   py-4 px-5 rounded-lg
   `}
 `
 const CardInfo = styled.div`
-#${tw`my-5 flex justify-center`}
+#${tw`my-5 flex justify-start`}
 
 `
 const Info = styled.span `
-${tw `border m-1 p-1 rounded-lg`}
+${tw ` m-1 py-1 px-2 rounded-lg bg-gray-100 text-center text-gray-600`}
 
 `
 
@@ -114,11 +113,11 @@ export default function Home({allPokemon}) {
 const PokeCard = ({p, id}) => (
 
       <Card type={p.types[0].type.name}>
-        <Name>{p.name}</Name>
-        <CardContent>
-          <ImgDiv>
+
             <Img src={`/sprites/${id}.png`} />
-          </ImgDiv>     
+  
+        <CardContent>
+        <Name>{p.name}</Name>     
           <CardInfo>
           <Info>{p.base_experience + " xp"}</Info>
           {p.types.map(t => <Info>{t.type.name}</Info>)}
