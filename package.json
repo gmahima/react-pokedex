@@ -12,7 +12,9 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "styled-components": "^5.1.1",
-    "twin.macro": "^1.5.0"
+    "swr": "^0.2.3",
+    "twin.macro": "^1.5.0",
+    "unfetch": "^4.1.0"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^2.3.0",
@@ -20,7 +22,6 @@
     "babel-plugin-macros": "^2.8.0",
     "babel-plugin-styled-components": "^1.10.7",
     "tailwindcss": "^1.4.6"
-    
   },
   "babelMacros": {
     "twin": {
