@@ -4,10 +4,7 @@ import styled from 'styled-components'
 import tw from 'twin.macro'
 
 const Title = styled.div`
-display: flex;
-align-items: center;
-
-
+  ${tw`flex items-center`}
 `
 const Heading = styled.h1`
 

@@ -32,7 +32,7 @@ mb-10
 
 const Card = styled.div`
 display: grid;
-${tw`shadow-md border border-gray-200
+${tw`shadow-md border-8 border-gray-300
   cursor-pointer
   rounded-lg
   hover:shadow-sm
@@ -81,7 +81,7 @@ ${props => {
         case 'psychic' : return (tw`bg-purple-400`)
         case 'fighting' : return (tw`bg-red-600`)
         case 'rock' : return (tw`bg-gray-300`)
-        case 'ghost': return (tw`bg-green-400`)
+        case 'ghost': return (tw`bg-gray-400`)
         case 'dragon': return (tw`bg-red-300`)        
 
         default: return (tw`bg-gray-100`)
