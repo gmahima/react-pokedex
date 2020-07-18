@@ -6,14 +6,13 @@ import tw from 'twin.macro'
 
 const HeadingDiv = styled.div`
 ${tw `
-sm:text-5xl sm:py-16 py-2 text-4xl
+sm:text-6xl sm:py-16 py-2 text-4xl
+font-bold text-gray-600 mb-20
 `}
 `
 const A = styled.a`
 color: black;
 text-decoration: none;
-
-
 `
 const Container = styled.div`
 display: grid;
@@ -36,7 +35,9 @@ ${tw`shadow-md border border-gray-200
   cursor-pointer
   rounded-lg
   hover:shadow-sm
-  shadow-md border-8 border-gray-300
+  shadow-md 
+  bg-white 
+  pl-4
 
 `}
 @media(min-width: 640px) {
@@ -70,20 +71,20 @@ ${tw`
 ${props => {
 
       switch(props.type) {
-        case 'grass': return (tw`bg-green-100`)
-        case 'fire': return (tw`bg-red-100`)
-        case 'water': return (tw`bg-indigo-100`)
-        case 'bug': return (tw`bg-teal-100`)
-        case 'poison': return (tw`bg-purple-200`)
-        case 'flying': return (tw`bg-blue-100`)
-        case 'electric': return (tw`bg-yellow-300`)
-        case 'fairy': return(tw`bg-pink-200`)
-        case 'ground': return(tw`bg-orange-300`)
-        case 'psychic' : return (tw`bg-purple-400`)
+        case 'grass': return (tw`bg-green-200`)
+        case 'fire': return (tw`bg-red-200`)
+        case 'water': return (tw`bg-indigo-200`)
+        case 'bug': return (tw`bg-teal-200`)
+        case 'poison': return (tw`bg-purple-300`)
+        case 'flying': return (tw`bg-blue-200`)
+        case 'electric': return (tw`bg-yellow-400`)
+        case 'fairy': return(tw`bg-pink-300`)
+        case 'ground': return(tw`bg-orange-400`)
+        case 'psychic' : return (tw`bg-purple-500`)
         case 'fighting' : return (tw`bg-red-600`)
-        case 'rock' : return (tw`bg-gray-300`)
-        case 'ghost': return (tw`bg-gray-400`)
-        case 'dragon': return (tw`bg-red-300`)        
+        case 'rock' : return (tw`bg-gray-400`)
+        case 'ghost': return (tw`bg-gray-300`)
+        case 'dragon': return (tw`bg-red-100`)        
 
         default: return (tw`bg-gray-100`)
       }
@@ -137,7 +138,7 @@ const CardInfo = styled.div`
 
 `
 const Info = styled.span `
-${tw ` m-1 py-1 px-2 rounded-lg bg-gray-100 text-center align-middle text-gray-600`}
+${tw ` m-1 py-1 px-2 rounded-lg shadow-sm bg-gray-400 bg-opacity-25  text-center align-middle text-gray-600`}
 
 
 `
@@ -147,7 +148,7 @@ export default function Home({allPokemon}) {
   return (
 
       <Layout>
-        <HeadingDiv><h1>Pokédex</h1></HeadingDiv>
+        <HeadingDiv><h1>The Kanto Pokedex</h1></HeadingDiv>
         <Container>
           {console.log(allPokemon)}
           {allPokemon.map((p, i) => <Link href='/details/[id]' as={`details/${i+1}`} key={p.name}><A><PokeCard p={p}  id={i+1}/></A></Link>)}
