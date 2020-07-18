@@ -18,7 +18,21 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 function MyApp({ Component, pageProps }) {
-  const { data, error } = useSWR("http://pokeapi.salestock.net/api/v2/pokedex/2/", fetcher)
+//   const getAllPokemon = async () => {
+//     let promises = []
+//     for(let i=1; i<=1; i++) {
+//         promises.push(fetch(`http://pokeapi.co/api/v2/pokemon/${i}`).then(res=>res.json()))
+//     }
+
+//     const data = await Promise.all(promises).then(values => values)
+//     return data;
+// }
+// const list = []
+// for(let i=1; i<=1; i++) {
+//   list.push(`http://pokeapi.co/api/v2/pokemon/${i}/`)
+// }
+
+  const { data, error } = useSWR("https://pokeapi.co/api/v2/pokemon/2/", fetcher)
 
     // return (
     //     <>
@@ -27,9 +41,25 @@ function MyApp({ Component, pageProps }) {
     //         <Component {...pageProps} />
     //     </>
     // )
-    if (error) return <div>failed to load</div>
-            if (!data) return <div>loading...</div>
-            return <div>{console.log(data)}!</div>
+    if (error) return (<>
+                          <GlobalStyle />
+                          
+                          <div>error</div>
+                      </>)
+            if (!data) return(
+              <>
+                  <GlobalStyle />
+                  
+                  <div>loading...</div>
+              </>
+            )
+            return (
+              <>
+                  <GlobalStyle />
+                  
+                  <Component {...pageProps} data={data}/>
+              </>
+            )
   }
 
   export default MyApp

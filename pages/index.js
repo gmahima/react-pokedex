@@ -1,4 +1,4 @@
-import {getAllPokemon} from '../lib/data'
+// import {getAllPokemon} from '../lib/data'
 import Layout from '../components/Layout'
 import styled from 'styled-components'
 import Link from 'next/link'
@@ -142,15 +142,16 @@ ${tw ` m-1 py-1 px-2 rounded-lg bg-gray-100 text-center align-middle text-gray-6
 `
 
 
-export default function Home({allPokemon}) {
+export default function Home(data) {
   return (
 
       <Layout>
         <HeadingDiv><h1>Pokédex</h1></HeadingDiv>
-        <Container>
+        {/* <Container>
           {console.log(allPokemon)}
           {allPokemon.map((p, i) => <Link href='/details/[id]' as={`details/${i+1}`} key={p.name}><A><PokeCard p={p}  id={i+1}/></A></Link>)}
-        </Container>
+        </Container> */}
+        {console.log(data)}
         
       </Layout>
 
@@ -179,9 +180,9 @@ const PokeCard = ({p, id}) => (
 
 
 
-export async function getStaticProps () {
+// export async function getStaticProps () {
   
-  const allPokemon = await getAllPokemon()
-  return {props: {allPokemon}};
-}
+//   const allPokemon = await getAllPokemon()
+//   return {props: {allPokemon}};
+// }
 
