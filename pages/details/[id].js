@@ -2,7 +2,7 @@ import Layout from '../../components/Layout'
 import {getIds, getPokemonDetails} from '../../lib/data'
 import styled from 'styled-components'
 import tw from 'twin.macro'
-import Head from 'next/head'
+
 //----------------------X---------STYLED-----------X-----------------
 const Container = styled.div`
 display:grid;
@@ -13,7 +13,7 @@ row-gap: 0;
 ${tw`h-screen mx-20 sm:overflow-hidden`}
 `
 const Card = styled.div`
-${tw`m-0 p-0  border border-gray-600 rounded-lg shadow-xl`}
+${tw`m-0 p-0   rounded-lg shadow-xl`}
   grid-row-start: 2;
   grid-row-end: span 1;
   ${props => {
@@ -28,7 +28,7 @@ ${tw`m-0 p-0  border border-gray-600 rounded-lg shadow-xl`}
 
 `
 const Heading = styled.h1`
-${tw` border-b font-bold text-gray-700 text-4xl bg-gray-400  sm:absolute rounded-t-lg p-3 w-full`}
+${tw` border-b font-bold text-4xl bg-gray-700 text-gray-100 sm:absolute rounded-t-lg p-3 w-full`}
 `
 // background-image: linear-gradient(to bottom right, aqua, yellow); ATTACKS!!!!!
 
@@ -37,33 +37,13 @@ const Attacks = styled.div`
   grid-row-start: 2;
   grid-row-end: span 1;
   
-  ${tw`sm:overflow-y-auto rounded-lg shadow-xl h-full`}
-  ${props => {
+  ${tw`sm:overflow-y-auto rounded-lg shadow-xl h-full bg-gray-100`}
 
-    switch(props.type) {
-      case 'grass': return (tw`bg-green-700`)
-      case 'fire': return (tw`bg-orange-700`)
-      case 'water': return (tw`bg-indigo-700`)
-      case 'bug': return (tw`bg-teal-700`)
-      case 'poison': return (tw`bg-purple-100`)
-      case 'flying': return (tw`bg-blue-700`)
-      case 'electric': return (tw`bg-yellow-700`)
-      case 'fairy': return(tw`bg-pink-700`)
-      case 'ground': return(tw`bg-yellow-700`)
-      case 'psychic' : return (tw`bg-purple-700`)
-      case 'fighting' : return (tw`bg-red-700`)
-      case 'rock' : return (tw`bg-gray-700`)
-      case 'ghost': return (tw`bg-gray-700`)
-      case 'dragon': return (tw`bg-red-700`)        
-  
-      default: return (tw`bg-gray-100`)
-    }
-  }
 
 }
 `
 const Info = styled.span`
-${tw`bg-gray-100 bg-opacity-0  m-1 p-1 rounded-lg text-sm text-gray-200`}
+${tw`text-gray-700   m-1 p-1 rounded-lg text-sm `}
 
 `
 const Para = styled.p`
