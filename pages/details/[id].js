@@ -6,16 +6,17 @@ import tw from 'twin.macro'
 //----------------------X---------STYLED-----------X-----------------
 const Container = styled.div`
 display:grid;
-grid-template-columns: 1fr 1.5fr 0.8fr;
+grid-template-columns: 1fr 0.6fr;
 grid-template-rows:  10rem 1fr 10rem;
 column-gap: 2rem;
 row-gap: 0;
 ${tw`h-screen mx-20 sm:overflow-hidden`}
 `
 const Card = styled.div`
-${tw`m-0 p-0   rounded-lg shadow-xl min-h-full`}
+${tw`m-0 p-0   rounded-lg shadow-xl `}
   grid-row-start: 2;
   grid-row-end: span 1;
+
   
   ${props => {
     if(props.attacks) {
@@ -67,7 +68,7 @@ const Name = styled.div`
 ${tw`flex justify-between bg-gray-700 text-gray-100 px-2`}
 `
 const Data=styled.div`
-${tw`flex justify-between text-gray-700 border-b border-gray-700 mt-5`}
+${tw`flex justify-between text-gray-700 border-b border-gray-700 `}
 `
 const DataDiv=styled.div`
   ${tw`px-3`}
@@ -98,7 +99,8 @@ ${tw`  text-lg font-semibold`}
 
 
 const Div = styled.div`
-${tw`border-blue-700 border `}
+${tw`bg-pink-600 min-h-full`}
+
 
 `
 //Main
@@ -121,13 +123,14 @@ export default function Details({data, id}) {
  
         </Para>
         </List> */}
-        <Card><Img src={`/sprites/${id}.png`} /></Card>
-        <Card main>
+        
+        
+          <Card>
           <MainCard type={(data.types[0].type.name)}>
 
-          <ImgDiv>
+           <ImgDiv>
             <Img src={`/sprites/${id}.png`} />
-          </ImgDiv>
+          </ImgDiv> 
           <MainCardInfo>
             <Name>
               <NameSpan>#{data.id}</NameSpan>
@@ -161,10 +164,10 @@ export default function Details({data, id}) {
             
               
             
-          </MainCardInfo>
+          </MainCardInfo> 
           </MainCard>
+      
         </Card>
-        
         <Card attacks>
           <Attacks type={(data.types[1].type.name)?(data.types[1].type.name): ""}>
             <Heading>Attacks</Heading>
