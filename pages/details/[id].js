@@ -6,41 +6,50 @@ import Head from 'next/head'
 //----------------------X---------STYLED-----------X-----------------
 const Container = styled.div`
 display:grid;
-grid-template-columns: 1fr 1.5fr 1fr;
+grid-template-columns: 1fr 1.5fr 0.8fr;
 grid-template-rows:  10rem 1fr 10rem;
 column-gap: 2rem;
 row-gap: 0;
-${tw`h-screen mx-20 overflow-hidden`}
+${tw`h-screen mx-20 sm:overflow-hidden`}
 `
 const Card = styled.div`
 ${tw`m-0 p-0  border border-gray-600 rounded-lg shadow-xl`}
   grid-row-start: 2;
   grid-row-end: span 1;
-  ${props => props.attacks?(tw`overflow-hidden relative`): (``)}
+  ${props => {
+    if(props.attacks) {
+      return (tw`sm:overflow-hidden sm:relative`)
+    }
+    if(props.main) {
+      return (tw `border-none`)
+    }
+  }}
+
+
 `
 const Heading = styled.h1`
-${tw` border-b font-bold text-gray-700 text-4xl bg-gray-400  absolute rounded-t-lg p-3 w-full`}
+${tw` border-b font-bold text-gray-700 text-4xl bg-gray-400  sm:absolute rounded-t-lg p-3 w-full`}
 `
-//background-image: linear-gradient(to bottom right, aqua, yellow); ATTACKS!!!!!
+// background-image: linear-gradient(to bottom right, aqua, yellow); ATTACKS!!!!!
 
 const Attacks = styled.div`
 
   grid-row-start: 2;
   grid-row-end: span 1;
   
-  ${tw`overflow-y-auto rounded-lg shadow-xl h-full`}
+  ${tw`sm:overflow-y-auto rounded-lg shadow-xl h-full`}
   ${props => {
 
     switch(props.type) {
       case 'grass': return (tw`bg-green-700`)
-      case 'fire': return (tw`bg-red-700`)
+      case 'fire': return (tw`bg-orange-700`)
       case 'water': return (tw`bg-indigo-700`)
       case 'bug': return (tw`bg-teal-700`)
       case 'poison': return (tw`bg-purple-700`)
       case 'flying': return (tw`bg-blue-700`)
       case 'electric': return (tw`bg-yellow-700`)
       case 'fairy': return(tw`bg-pink-700`)
-      case 'ground': return(tw`bg-orange-700`)
+      case 'ground': return(tw`bg-yellow-700`)
       case 'psychic' : return (tw`bg-purple-700`)
       case 'fighting' : return (tw`bg-red-700`)
       case 'rock' : return (tw`bg-gray-700`)
@@ -55,6 +64,7 @@ const Attacks = styled.div`
 `
 const Span = styled.span`
 ${tw`bg-gray-100 bg-opacity-0  m-1 p-1 rounded-lg text-sm text-gray-200`}
+
 `
 const Para = styled.p`
 ${tw`m-4 flex flex-wrap mt-16 pt-8`}
@@ -62,28 +72,55 @@ ${tw`m-4 flex flex-wrap mt-16 pt-8`}
 //ATTACKS!!!!!
 //Main
 const Img = styled.img`
-
+${tw`w-full h-full`}
 `
-
-
 const ImgDiv = styled.div`
-grid-column: 1/span 1;
-grid-row: 1/span 1;
-${tw`border border-red-700`}
+  justify-self: center;
+  ${tw`w-1/2 bg-white bg-opacity-75 rounded-full`}
+`
+const MainCardHeader= styled.div`
+  ${tw`flex justify-between items-center px-5 py-2`}
 `
 const MainCard = styled.div`
-display: grid;
-grid-template-columns: 1fr 3fr 1fr;
-grid-template-rows: 1fr 4fr 4fr;
+${props => {
 
-  ${tw`border-red-700 border h-full bg-red-600`}
+  switch(props.type) {
+    case 'grass': return (tw`bg-green-700`)
+        case 'fire': return (tw`bg-orange-700`)
+        case 'water': return (tw`bg-indigo-700`)
+        case 'bug': return (tw`bg-teal-700`)
+        case 'poison': return (tw`bg-purple-700`)
+        case 'flying': return (tw`bg-blue-700`)
+        case 'electric': return (tw`bg-yellow-700`)
+        case 'fairy': return(tw`bg-pink-700`)
+        case 'ground': return(tw`bg-yellow-600`)
+        case 'psychic' : return (tw`bg-purple-700`)
+        case 'fighting' : return (tw`bg-red-700`)
+        case 'rock' : return (tw`bg-gray-700`)
+        case 'ghost': return (tw`bg-gray-700`)
+        case 'dragon': return (tw`bg-red-700`)        
+
+        default: return (tw`bg-gray-100`)
+  }
+}
+}
+display: grid;
+grid-template-rows: 1fr 3fr 3fr;
+${tw`border-yellow-500 rounded-lg text-white border-8 h-full`}
+`
+const NameSpan=styled.span`
+${tw`uppercase font-semibold text-xl flex-grow bg-white text-black rounded-tl-full`}
+
+`
+const XpSpan = styled.span`
+background-image: linear-gradient(to bottom right, aqua, yellow);
+${tw`font-semibold bg-gray-300 rounded-br-full px-3 py-1 text-black `}
+sub {
+  ${tw`pr-1 text-xs lowercase`}
+}
 `
 const Div = styled.div`
 ${tw`border-blue-700 border `}
-
-`
-
-const Info = styled.div`
 
 `
 //Main
@@ -106,20 +143,22 @@ export default function Details({data, id}) {
  
         </Para>
         </List> */}
-        <Card/>
-        <Card>
-            
- 
-              {/* <ImgDiv><Img src={`/sprites/${id}.png`} /></ImgDiv>
-              <Info>
-                abilities: {data.abilities.map(a => a.ability.name + " ")} 
-              </Info> */}
-              <MainCard><Div/><Div/><Div/><Div/><Div/><Div/><Div/><Div/><Div/></MainCard>
-              
-
+        <Card><Img src={`/sprites/${id}.png`} /></Card>
+        <Card main>
+          <MainCard type={(data.types[0].type.name)}>
+          <MainCardHeader>
+            <NameSpan>{data.name}</NameSpan>
+            <XpSpan><sub>xp.</sub>{data.base_experience}</XpSpan>
+          </MainCardHeader>
+          <ImgDiv>
+            <Img src={`/sprites/${id}.png`} />
+          </ImgDiv>
+          <Div/>
+          </MainCard>
         </Card>
+        
         <Card attacks>
-          <Attacks type={data.types[0].type.name}>
+          <Attacks type={(data.types[1].type.name)?(data.types[1].type.name): ""}>
             <Heading>Attacks</Heading>
             <Para>
               {data.moves.map((m,i) => <Span key={i.toString()}>{m.move.name}</Span>)}   

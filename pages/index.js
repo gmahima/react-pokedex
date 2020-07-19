@@ -72,14 +72,14 @@ ${props => {
 
       switch(props.type) {
         case 'grass': return (tw`bg-green-200`)
-        case 'fire': return (tw`bg-red-200`)
+        case 'fire': return (tw`bg-orange-200`)
         case 'water': return (tw`bg-indigo-200`)
         case 'bug': return (tw`bg-teal-200`)
         case 'poison': return (tw`bg-purple-300`)
         case 'flying': return (tw`bg-blue-200`)
         case 'electric': return (tw`bg-yellow-400`)
         case 'fairy': return(tw`bg-pink-300`)
-        case 'ground': return(tw`bg-orange-400`)
+        case 'ground': return(tw`bg-yellow-600`)
         case 'psychic' : return (tw`bg-purple-500`)
         case 'fighting' : return (tw`bg-red-600`)
         case 'rock' : return (tw`bg-gray-400`)
@@ -162,7 +162,7 @@ export default function Home({allPokemon}) {
 
 const PokeCard = ({p, id}) => (
 
-      <Card type={p.types[0].type.name}>
+      <Card type={p.types[0].type.name} id={id}>
           <ImgDiv>
             <Img src={`/sprites/${id}.png`} type={p.types[0].type.name}/>
           </ImgDiv>
@@ -170,7 +170,7 @@ const PokeCard = ({p, id}) => (
             <Name>{p.name}</Name>     
             <CardInfo>
               
-              {p.types.map(t => <Info>{t.type.name}</Info>)}
+              {p.types.map(t => <Info id={t.type.name}>{t.type.name}</Info>)}
               <Info>{"base-xp " + p.base_experience }</Info>
             </CardInfo>      
           </CardContent>
