@@ -5,12 +5,13 @@ import tw from 'twin.macro'
 
 //----------------------X---------STYLED-----------X-----------------
 const Container = styled.div`
+
 display:grid;
 grid-template-columns: 1fr 0.6fr;
 grid-template-rows:  10rem 1fr 10rem;
 column-gap: 2rem;
 row-gap: 0;
-${tw`h-screen mx-20 sm:overflow-hidden`}
+${tw`h-screen mx-56 sm:overflow-hidden`}
 `
 const Card = styled.div`
 ${tw`m-0 p-0   rounded-lg shadow-xl `}
@@ -54,11 +55,11 @@ ${tw`m-4 flex flex-wrap mt-16 pt-8`}
 //ATTACKS!!!!!
 //Main
 const Img = styled.img`
-${tw`w-full h-full`}
+${tw`w-1/2 h-full`}
 `
 const ImgDiv = styled.div`
   justify-self: center;
-  ${tw`w-1/2 min-h-full bg-gray-500 bg-opacity-25 shadow-inner rounded-lg`}
+  ${tw`w-1/2 min-h-full bg-gray-500 bg-opacity-25 shadow-inner rounded-lg flex justify-center`}
 `
 const MainCardInfo= styled.div`
 justify-self: center;
@@ -68,10 +69,10 @@ const Name = styled.div`
 ${tw`flex justify-between bg-gray-700 text-gray-100 px-2`}
 `
 const Data=styled.div`
-${tw`flex justify-between text-gray-700 border-b border-gray-700 `}
+${tw`flex justify-between text-gray-700 border-b border-gray-700 mb-4`}
 `
 const DataDiv=styled.div`
-  ${tw`px-3`}
+  ${tw`px-3 mt-5`}
 `
 const MainCard = styled.div`
 
@@ -94,7 +95,7 @@ const KeySpan=styled.span`
 ${tw`uppercase  text-lg font-semibold`}
 `
 const ValSpan=styled.span`
-${tw`  text-lg font-semibold`}
+${tw`  text-lg font-semibold `}
 `
 
 
@@ -112,17 +113,7 @@ export default function Details({data, id}) {
 
     <Layout>
       <Container>
-      {/* <Card>
-        <Heading>{data.name}</Heading><img src={`/sprites/${id}.png`} />
-      </Card>
-      <List>
-        <Heading>Attacks</Heading>
-        <Para>
 
-          {data.moves.map((m,i) => <Span key={i.toString()}>{m.move.name}</Span>)}
- 
-        </Para>
-        </List> */}
         
         
           <Card>
