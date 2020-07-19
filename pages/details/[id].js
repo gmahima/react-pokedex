@@ -65,7 +65,8 @@ ${tw`w-full h-full`}
 `
 const ImgDiv = styled.div`
 grid-column: 2/span 1;
-grid-row: 2/span 1; 
+grid-row: 2/span 1;
+ 
 ${tw``}
 `
 const MainCard = styled.div`
@@ -100,9 +101,9 @@ export default function Details({data, id}) {
         </List> */}
         <Card/>
         <Card>
-          <MainCard>
             <MainHeading>{data.name}</MainHeading>
-            <ImgDiv><Img src={`/sprites/${id}.png`} /></ImgDiv>
+            <MainCard>
+              <ImgDiv><Img src={`/sprites/${id}.png`} /></ImgDiv>
           </MainCard>
         </Card>
         <Card>
