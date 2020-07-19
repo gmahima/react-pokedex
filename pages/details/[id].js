@@ -73,6 +73,7 @@ const MainCard = styled.div`
 display: grid;
 grid-template-columns: 1fr 2fr 1fr;
 grid-template-rows: 0.2fr 0.4fr 1fr;
+grid-gap: 1em;
 ${tw` text-gray-700 bg-red-100`}
 `
 const MainHeading = styled(Heading)`
@@ -83,13 +84,13 @@ const Info = styled.div`
 grid-row: 3/span 1;
 grid-column: 1/span 3;
 
-${tw`bg-pink-200`}
+${tw`bg-gray-400 text-gray-700 overflow-auto`}
 `
 //Main
 
 //----------------------X---------STYLED-----------X-----------------
 export default function Details({data, id}) {
-  console.log(data.stats)
+  console.log(data.abilities)
   return (
 
     <Layout>
@@ -110,7 +111,9 @@ export default function Details({data, id}) {
             <MainHeading>{data.name}</MainHeading>
             <MainCard>
               <ImgDiv><Img src={`/sprites/${id}.png`} /></ImgDiv>
-              <Info>asdf</Info>
+              <Info>
+                abilities: {data.abilities.map(a => a.ability.name + " ")} 
+              </Info>
           </MainCard>
         </Card>
         <Card>
