@@ -73,7 +73,7 @@ const MainCard = styled.div`
 display: grid;
 grid-template-columns: 1fr 2fr 1fr;
 grid-template-rows: 1fr 2fr 1fr;
-${tw` text-gray-700`}
+${tw` text-gray-700 bg-red-100`}
 `
 const MainHeading = styled(Heading)`
 
