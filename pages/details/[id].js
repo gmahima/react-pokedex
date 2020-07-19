@@ -2,111 +2,120 @@ import Layout from '../../components/Layout'
 import {getIds, getPokemonDetails} from '../../lib/data'
 import styled from 'styled-components'
 import tw from 'twin.macro'
-
-const Title = styled.div`
-display: flex;
-align-items: center;
-
-
+import Head from 'next/head'
+//----------------------X---------STYLED-----------X-----------------
+const Container = styled.div`
+display:grid;
+grid-template-columns: 1fr 1.5fr 1fr;
+grid-template-rows:  10em 1fr 10em;
+column-gap: 2rem;
+row-gap: 0;
+${tw`h-screen mx-20 overflow-hidden`}
+`
+const Card = styled.div`
+${tw`m-0 p-0  overflow-hidden relative border border-gray-600 rounded-lg shadow-xl`}
+  grid-row-start: 2;
+  grid-row-end: span 1;
 `
 const Heading = styled.h1`
+${tw` border-b font-bold text-gray-700 text-4xl bg-gray-400  absolute rounded-t-lg p-3 w-full`}
+`
+//background-image: linear-gradient(to bottom right, aqua, yellow); ATTACKS!!!!!
 
-font-size: 3em;
-text-transform: capitalize;
-@media(max-width: 500px) {
-  font-size: 2em;
-  font-weight: 600;
+const Attacks = styled.div`
+
+  grid-row-start: 2;
+  grid-row-end: span 1;
+  
+  ${tw`overflow-y-auto rounded-lg shadow-xl h-full`}
+  ${props => {
+
+    switch(props.type) {
+      case 'grass': return (tw`bg-green-700`)
+      case 'fire': return (tw`bg-red-700`)
+      case 'water': return (tw`bg-indigo-700`)
+      case 'bug': return (tw`bg-teal-700`)
+      case 'poison': return (tw`bg-purple-700`)
+      case 'flying': return (tw`bg-blue-700`)
+      case 'electric': return (tw`bg-yellow-700`)
+      case 'fairy': return(tw`bg-pink-700`)
+      case 'ground': return(tw`bg-orange-700`)
+      case 'psychic' : return (tw`bg-purple-700`)
+      case 'fighting' : return (tw`bg-red-700`)
+      case 'rock' : return (tw`bg-gray-700`)
+      case 'ghost': return (tw`bg-gray-700`)
+      case 'dragon': return (tw`bg-red-700`)        
+  
+      default: return (tw`bg-gray-100`)
+    }
+  }
+
 }
 `
-const Container = styled.div`
-display: grid;
-justify-items: center;
-justify-content: center;
-align-content: center;
-min-height: 100vh;
-@media(max-width: 500px) {
-  margin: 10px 10px 40px 10px;
-  justify-content: start;
- }
-
-`
-
-const Card = styled.div`
-  margin: 50px auto;
-  display: grid;
-  box-shadow: 10px 10px 50px #DDD;
-  border-style: solid;
-  border-width: 2px;
-  justify-items: center;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  max-width: 400px;
-  padding: 30px;
-  @media(max-width: 500px) {
-   padding: 10px 0;
-   max-width: 200px;
-   justify-self: center;
-    
-  }
-
-
-`
-const List = styled.div`
-  margin: 0 20px;
-  display: grid;
-  box-shadow: 10px 10px 50px #DDD;
-  border-style: solid;
-  border-width: 1px;
-  padding: 30px;
-  text-align: center;
-  @media(max-width: 500px) {
-    margin: 0 10px;
-    padding: 10px;
-
-    
-    
-  }
-
-`
-
 const Span = styled.span`
-border: 1px solid #eee;
-margin: 5px;
-padding:  5px 10px;
-border-radius: 5px;
-&:hover {
-  border-color: #999
-}
+${tw`bg-gray-100 bg-opacity-0  m-1 p-1 rounded-lg text-sm text-gray-200`}
 `
-
 const Para = styled.p`
-width: 1000px;
-display: flex;
-flex-wrap: wrap;
-@media(max-width: 500px) {
-  width: 100%;
-}
-
+${tw`m-4 flex flex-wrap mt-16 pt-8`}
 `
+//ATTACKS!!!!!
+//Main
+const Img = styled.img`
+${tw`w-full h-full`}
+`
+const ImgDiv = styled.div`
+grid-column: 2/span 1;
+grid-row: 2/span 1; 
+${tw``}
+`
+const MainCard = styled.div`
+display: grid;
+grid-template-columns: 1fr 2fr 1fr;
+grid-template-rows: 1fr 2fr 1fr;
+${tw` text-gray-700`}
+`
+const MainHeading = styled(Heading)`
+
+${tw` text-center uppercase `} 
+`
+//Main
+
+//----------------------X---------STYLED-----------X-----------------
 export default function Details({data, id}) {
-  console.log({data, id})
+  console.log(data.stats)
   return (
 
     <Layout>
       <Container>
-        <Title><Heading>{data.name}</Heading><img src={`/sprites/${id}.png`} /></Title>
-
+      {/* <Card>
+        <Heading>{data.name}</Heading><img src={`/sprites/${id}.png`} />
+      </Card>
       <List>
-        <h2>Attacks</h2>
+        <Heading>Attacks</Heading>
         <Para>
 
           {data.moves.map((m,i) => <Span key={i.toString()}>{m.move.name}</Span>)}
  
         </Para>
-        </List>
+        </List> */}
+        <Card/>
+        <Card>
+          <MainCard>
+            <MainHeading>{data.name}</MainHeading>
+            <ImgDiv><Img src={`/sprites/${id}.png`} /></ImgDiv>
+          </MainCard>
+        </Card>
+        <Card>
+          <Attacks type={data.types[0].type.name}>
+            <Heading>Attacks</Heading>
+            <Para>
+              {data.moves.map((m,i) => <Span key={i.toString()}>{m.move.name}</Span>)}   
+            </Para>
+          </Attacks>
+        </Card>
  
         </Container>
+
     </Layout>
   )
 }

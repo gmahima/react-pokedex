@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     font-family: Open-Sans, Helvetica, Sans-Serif;
     text-align: center;
-    ${tw`bg-gray-200`}
+ 
   }
 `;
 

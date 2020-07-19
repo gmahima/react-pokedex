@@ -6,8 +6,8 @@ import tw from 'twin.macro'
 
 const HeadingDiv = styled.div`
 ${tw `
-sm:text-6xl sm:py-16 py-2 text-4xl
-font-bold text-gray-600 mb-20
+sm:text-6xl sm:py-16 text-4xl
+font-bold text-gray-700 sm:py-6
 `}
 `
 const A = styled.a`
@@ -20,9 +20,8 @@ grid-template-columns: repeat(auto-fit, minmax(6em, 17em));
 grid-gap: 2em;
 justify-content: center;
 ${tw`
-px-8 sm:px-10
-mb-10
-`}
+px-8 sm:p-10 sm:mx-32 
+mb-10`}
 @media (min-width: 640px) {
   grid-template-columns: repeat(auto-fit, minmax(10em, 20em))
 }
@@ -38,6 +37,7 @@ ${tw`shadow-md border border-gray-200
   shadow-md 
   bg-white 
   pl-4
+  border border-gray-300 border-2
 
 `}
 @media(min-width: 640px) {
