@@ -72,20 +72,24 @@ ${tw`m-4 flex flex-wrap mt-16 pt-8`}
 //ATTACKS!!!!!
 //Main
 const Img = styled.img`
-${tw`w-full h-full`}
+${tw`w-full`}
 `
 const ImgDiv = styled.div`
   justify-self: center;
-  ${tw`w-1/2 bg-white bg-opacity-75 rounded-full`}
+  ${tw`w-1/2 bg-gray-500 bg-opacity-25 shadow-inner rounded-lg`}
 `
-const MainCardHeader= styled.div`
-  ${tw`flex justify-between items-center px-5 py-2`}
+const MainCardInfo= styled.div`
+justify-self: center;
+  ${tw` bg-gray-500 bg-opacity-25 shadow-inner rounded-lg w-11/12 p-3 `}
+`
+const Name = styled.div`
+${tw`flex justify-between bg-gray-700 text-gray-100 px-2`}
 `
 const MainCard = styled.div`
 ${props => {
 
   switch(props.type) {
-    case 'grass': return (tw`bg-green-700`)
+    case 'grass': return (tw`bg-gray-200`)
         case 'fire': return (tw`bg-orange-700`)
         case 'water': return (tw`bg-indigo-700`)
         case 'bug': return (tw`bg-teal-700`)
@@ -105,20 +109,24 @@ ${props => {
 }
 }
 display: grid;
-grid-template-rows: 1fr 3fr 3fr;
-${tw`border-yellow-500 rounded-lg text-white border-8 h-full`}
+grid-gap: 1rem;
+grid-template-rows:0.4fr 1fr;
+${tw`border-gray-300 rounded-lg text-white border-8 h-full py-5`}
 `
+
 const NameSpan=styled.span`
-${tw`uppercase font-semibold text-xl flex-grow bg-white text-black rounded-tl-full`}
+${tw`uppercase  text-2xl font-black`}
 
 `
-const XpSpan = styled.span`
-background-image: linear-gradient(to bottom right, aqua, yellow);
-${tw`font-semibold bg-gray-300 rounded-br-full px-3 py-1 text-black `}
+const XpSpan = styled(NameSpan)`
 sub {
-  ${tw`pr-1 text-xs lowercase`}
+
+${tw` lowercase`}
+
 }
+
 `
+
 const Div = styled.div`
 ${tw`border-blue-700 border `}
 
@@ -146,14 +154,18 @@ export default function Details({data, id}) {
         <Card><Img src={`/sprites/${id}.png`} /></Card>
         <Card main>
           <MainCard type={(data.types[0].type.name)}>
-          <MainCardHeader>
-            <NameSpan>{data.name}</NameSpan>
-            <XpSpan><sub>xp.</sub>{data.base_experience}</XpSpan>
-          </MainCardHeader>
+
           <ImgDiv>
             <Img src={`/sprites/${id}.png`} />
           </ImgDiv>
-          <Div/>
+          <MainCardInfo>
+            <Name>
+            <NameSpan>{data.name}</NameSpan>
+              <XpSpan><sub>xp.</sub>{data.base_experience}</XpSpan>
+            </Name>
+              
+            
+          </MainCardInfo>
           </MainCard>
         </Card>
         
