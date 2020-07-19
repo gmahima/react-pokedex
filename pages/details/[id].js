@@ -13,9 +13,10 @@ row-gap: 0;
 ${tw`h-screen mx-20 sm:overflow-hidden`}
 `
 const Card = styled.div`
-${tw`m-0 p-0   rounded-lg shadow-xl`}
+${tw`m-0 p-0   rounded-lg shadow-xl min-h-full`}
   grid-row-start: 2;
   grid-row-end: span 1;
+  
   ${props => {
     if(props.attacks) {
       return (tw`sm:overflow-hidden sm:relative`)
@@ -52,11 +53,11 @@ ${tw`m-4 flex flex-wrap mt-16 pt-8`}
 //ATTACKS!!!!!
 //Main
 const Img = styled.img`
-${tw`w-full`}
+${tw`w-full h-full`}
 `
 const ImgDiv = styled.div`
   justify-self: center;
-  ${tw`w-1/2 bg-gray-500 bg-opacity-25 shadow-inner rounded-lg`}
+  ${tw`w-1/2 min-h-full bg-gray-500 bg-opacity-25 shadow-inner rounded-lg`}
 `
 const MainCardInfo= styled.div`
 justify-self: center;
@@ -76,7 +77,7 @@ const MainCard = styled.div`
 display: grid;
 grid-gap: 1rem;
 grid-template-rows:0.4fr 1fr;
-${tw`border-gray-300 rounded-lg text-white border-8 h-full py-5 bg-gray-100`}
+${tw`border-gray-300 rounded-lg text-white border-8 min-h-full py-5 bg-gray-100 `}
 `
 
 const NameSpan=styled.span`
