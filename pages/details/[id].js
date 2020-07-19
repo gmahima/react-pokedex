@@ -45,7 +45,7 @@ const Attacks = styled.div`
       case 'fire': return (tw`bg-orange-700`)
       case 'water': return (tw`bg-indigo-700`)
       case 'bug': return (tw`bg-teal-700`)
-      case 'poison': return (tw`bg-purple-700`)
+      case 'poison': return (tw`bg-purple-100`)
       case 'flying': return (tw`bg-blue-700`)
       case 'electric': return (tw`bg-yellow-700`)
       case 'fairy': return(tw`bg-pink-700`)
@@ -62,7 +62,7 @@ const Attacks = styled.div`
 
 }
 `
-const Span = styled.span`
+const Info = styled.span`
 ${tw`bg-gray-100 bg-opacity-0  m-1 p-1 rounded-lg text-sm text-gray-200`}
 
 `
@@ -85,47 +85,36 @@ justify-self: center;
 const Name = styled.div`
 ${tw`flex justify-between bg-gray-700 text-gray-100 px-2`}
 `
+const Data=styled.div`
+${tw`flex justify-between text-gray-700 border-b border-gray-700 mt-5`}
+`
+const DataDiv=styled.div`
+  ${tw`px-3`}
+`
 const MainCard = styled.div`
-${props => {
 
-  switch(props.type) {
-    case 'grass': return (tw`bg-gray-200`)
-        case 'fire': return (tw`bg-orange-700`)
-        case 'water': return (tw`bg-indigo-700`)
-        case 'bug': return (tw`bg-teal-700`)
-        case 'poison': return (tw`bg-purple-700`)
-        case 'flying': return (tw`bg-blue-700`)
-        case 'electric': return (tw`bg-yellow-700`)
-        case 'fairy': return(tw`bg-pink-700`)
-        case 'ground': return(tw`bg-yellow-600`)
-        case 'psychic' : return (tw`bg-purple-700`)
-        case 'fighting' : return (tw`bg-red-700`)
-        case 'rock' : return (tw`bg-gray-700`)
-        case 'ghost': return (tw`bg-gray-700`)
-        case 'dragon': return (tw`bg-red-700`)        
-
-        default: return (tw`bg-gray-100`)
-  }
-}
-}
 display: grid;
 grid-gap: 1rem;
 grid-template-rows:0.4fr 1fr;
-${tw`border-gray-300 rounded-lg text-white border-8 h-full py-5`}
+${tw`border-gray-300 rounded-lg text-white border-8 h-full py-5 bg-gray-100`}
 `
 
 const NameSpan=styled.span`
 ${tw`uppercase  text-2xl font-black`}
-
-`
-const XpSpan = styled(NameSpan)`
 sub {
 
-${tw` lowercase`}
-
-}
-
+  ${tw` lowercase`}
+  
+  }
+  
 `
+const KeySpan=styled.span`
+${tw`uppercase  text-lg font-semibold`}
+`
+const ValSpan=styled.span`
+${tw`  text-lg font-semibold`}
+`
+
 
 const Div = styled.div`
 ${tw`border-blue-700 border `}
@@ -160,9 +149,35 @@ export default function Details({data, id}) {
           </ImgDiv>
           <MainCardInfo>
             <Name>
-            <NameSpan>{data.name}</NameSpan>
-              <XpSpan><sub>xp.</sub>{data.base_experience}</XpSpan>
+              <NameSpan>#{data.id}</NameSpan>
+              <NameSpan>{data.name}</NameSpan>
+              <NameSpan><sub>xp.</sub>{data.base_experience}</NameSpan>
             </Name>
+            <DataDiv>
+
+            
+            <Data>
+              <KeySpan>order</KeySpan>
+              <ValSpan>{data.order}</ValSpan>
+            </Data>
+            <Data>
+              <KeySpan>types</KeySpan>
+              <ValSpan>{data.types.map(t => "   " + t.type.name)}</ValSpan>
+            </Data>
+            <Data>
+              <KeySpan>abilities</KeySpan>
+              <ValSpan>{data.abilities.map(a => "   " + a.ability.name)}</ValSpan>
+            </Data>
+            <Data>
+              <KeySpan>height</KeySpan>
+              <ValSpan>{data.height}</ValSpan>
+            </Data>
+            <Data>
+              <KeySpan>weight</KeySpan>
+              <ValSpan>{data.weight}</ValSpan>
+            </Data>
+            </DataDiv>
+            
               
             
           </MainCardInfo>
@@ -173,7 +188,7 @@ export default function Details({data, id}) {
           <Attacks type={(data.types[1].type.name)?(data.types[1].type.name): ""}>
             <Heading>Attacks</Heading>
             <Para>
-              {data.moves.map((m,i) => <Span key={i.toString()}>{m.move.name}</Span>)}   
+              {data.moves.map((m,i) => <Info key={i.toString()}>{m.move.name}</Info>)}   
             </Para>
           </Attacks>
         </Card>
