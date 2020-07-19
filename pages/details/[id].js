@@ -66,18 +66,24 @@ ${tw`w-full h-full`}
 const ImgDiv = styled.div`
 grid-column: 2/span 1;
 grid-row: 2/span 1;
- 
-${tw``}
+
+${tw`bg-black`}
 `
 const MainCard = styled.div`
 display: grid;
 grid-template-columns: 1fr 2fr 1fr;
-grid-template-rows: 1fr 2fr 1fr;
+grid-template-rows: 0.2fr 0.4fr 1fr;
 ${tw` text-gray-700 bg-red-100`}
 `
 const MainHeading = styled(Heading)`
 
 ${tw` text-center uppercase `} 
+`
+const Info = styled.div`
+grid-row: 3/span 1;
+grid-column: 1/span 3;
+
+${tw`bg-pink-200`}
 `
 //Main
 
@@ -104,6 +110,7 @@ export default function Details({data, id}) {
             <MainHeading>{data.name}</MainHeading>
             <MainCard>
               <ImgDiv><Img src={`/sprites/${id}.png`} /></ImgDiv>
+              <Info>asdf</Info>
           </MainCard>
         </Card>
         <Card>
