@@ -7,15 +7,16 @@ import Head from 'next/head'
 const Container = styled.div`
 display:grid;
 grid-template-columns: 1fr 1.5fr 1fr;
-grid-template-rows:  10em 1fr 10em;
+grid-template-rows:  10rem 1fr 10rem;
 column-gap: 2rem;
 row-gap: 0;
 ${tw`h-screen mx-20 overflow-hidden`}
 `
 const Card = styled.div`
-${tw`m-0 p-0  overflow-hidden relative border border-gray-600 rounded-lg shadow-xl`}
+${tw`m-0 p-0  border border-gray-600 rounded-lg shadow-xl`}
   grid-row-start: 2;
   grid-row-end: span 1;
+  ${props => props.attacks?(tw`overflow-hidden relative`): (``)}
 `
 const Heading = styled.h1`
 ${tw` border-b font-bold text-gray-700 text-4xl bg-gray-400  absolute rounded-t-lg p-3 w-full`}
@@ -61,30 +62,29 @@ ${tw`m-4 flex flex-wrap mt-16 pt-8`}
 //ATTACKS!!!!!
 //Main
 const Img = styled.img`
-${tw`w-full h-full`}
-`
-const ImgDiv = styled.div`
-grid-column: 2/span 1;
-grid-row: 2/span 1;
 
-${tw`bg-black`}
+`
+
+
+const ImgDiv = styled.div`
+grid-column: 1/span 1;
+grid-row: 1/span 1;
+${tw`border border-red-700`}
 `
 const MainCard = styled.div`
 display: grid;
-grid-template-columns: 1fr 2fr 1fr;
-grid-template-rows: 0.2fr 0.4fr 1fr;
-grid-gap: 1em;
-${tw` text-gray-700 bg-red-100`}
-`
-const MainHeading = styled(Heading)`
+grid-template-columns: 1fr 3fr 1fr;
+grid-template-rows: 1fr 4fr 4fr;
 
-${tw` text-center uppercase `} 
+  ${tw`border-red-700 border h-full bg-red-600`}
 `
+const Div = styled.div`
+${tw`border-blue-700 border `}
+
+`
+
 const Info = styled.div`
-grid-row: 3/span 1;
-grid-column: 1/span 3;
 
-${tw`bg-gray-400 text-gray-700 overflow-auto`}
 `
 //Main
 
@@ -108,15 +108,17 @@ export default function Details({data, id}) {
         </List> */}
         <Card/>
         <Card>
-            <MainHeading>{data.name}</MainHeading>
-            <MainCard>
-              <ImgDiv><Img src={`/sprites/${id}.png`} /></ImgDiv>
+            
+ 
+              {/* <ImgDiv><Img src={`/sprites/${id}.png`} /></ImgDiv>
               <Info>
                 abilities: {data.abilities.map(a => a.ability.name + " ")} 
-              </Info>
-          </MainCard>
+              </Info> */}
+              <MainCard><Div/><Div/><Div/><Div/><Div/><Div/><Div/><Div/><Div/></MainCard>
+              
+
         </Card>
-        <Card>
+        <Card attacks>
           <Attacks type={data.types[0].type.name}>
             <Heading>Attacks</Heading>
             <Para>
