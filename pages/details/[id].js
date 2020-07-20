@@ -7,11 +7,13 @@ import tw from 'twin.macro'
 const Container = styled.div`
 
 display:grid;
-grid-template-columns: 1fr 0.6fr;
-grid-template-rows:  10rem 1fr 10rem;
-column-gap: 2rem;
-row-gap: 0;
-${tw`h-screen mx-56 sm:overflow-hidden`}
+grid-template-columns: 1fr 1.3fr 1fr 1fr;
+grid-template-rows:  7rem 1fr 10rem;
+column-gap: 1rem;
+row-gap: 1rem;
+
+${tw`sm:h-screen sm:overflow-hidden`}
+
 `
 const Card = styled.div`
 ${tw`m-0 p-0   rounded-lg shadow-xl `}
@@ -24,9 +26,16 @@ ${tw`m-0 p-0   rounded-lg shadow-xl `}
       return (tw`sm:overflow-hidden sm:relative`)
     }
     if(props.main) {
-      return (tw `border-none`)
+      return (`grid-column: 2/span 1`)
     }
   }}
+  ${
+    props => {
+      if(props.attacks) {
+        return (`grid-column: 3/span 1`)
+      }
+    }
+  }
 
 
 `
@@ -40,7 +49,7 @@ const Attacks = styled.div`
   grid-row-start: 2;
   grid-row-end: span 1;
   
-  ${tw`sm:overflow-y-auto rounded-lg shadow-xl h-full bg-gray-100`}
+  ${tw`overflow-visible sm:overflow-y-auto rounded-lg shadow-xl h-full bg-gray-100`}
 
 
 }
@@ -50,7 +59,7 @@ ${tw`text-gray-700   m-1 p-1 rounded-lg text-sm `}
 
 `
 const Para = styled.p`
-${tw`m-4 flex flex-wrap mt-16 pt-8`}
+${tw`m-4 flex flex-wrap mt-16 pt-8 items-center`}
 `
 //ATTACKS!!!!!
 //Main
@@ -100,7 +109,7 @@ ${tw`  text-lg font-semibold `}
 
 
 const Div = styled.div`
-${tw`bg-pink-600 min-h-full`}
+${tw` border border-red-600 min-h-full`}
 
 
 `
@@ -114,9 +123,9 @@ export default function Details({data, id}) {
     <Layout>
       <Container>
 
-        
-        
-          <Card>
+        <Div/><Div/><Div/><Div/><Div/><Div/><Div/><Div/>
+          <Div />
+          <Card main>
           <MainCard type={(data.types[0].type.name)}>
 
            <ImgDiv>
@@ -160,14 +169,14 @@ export default function Details({data, id}) {
       
         </Card>
         <Card attacks>
-          <Attacks type={(data.types[1].type.name)?(data.types[1].type.name): ""}>
+          <Attacks >
             <Heading>Attacks</Heading>
             <Para>
               {data.moves.map((m,i) => <Info key={i.toString()}>{m.move.name}</Info>)}   
             </Para>
           </Attacks>
         </Card>
- 
+        <Div />
         </Container>
 
     </Layout>
