@@ -8,17 +8,14 @@ const Container = styled.div`
 ${tw`flex flex-col`}
 
 `
-const Top = styled("div")`
 
-${tw`bg-yellow-300 w-full h-32`}
-`
 const Layout = ({children}) => (
     <Container>
 
             <Head>
             <title>Pokémon</title>
             </Head>
-            <Top />
+            
             {children}
 
         

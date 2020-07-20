@@ -4,10 +4,15 @@ import styled from 'styled-components'
 import Link from 'next/link'
 import tw from 'twin.macro'
 
+const Top = styled("div")`
+
+${tw` w-full h-10 sm:h-20 flex items-center justify-around  border border-b  border-gray-300 bg-gray-100 sm:fixed`}
+`
+
 const HeadingDiv = styled.div`
 ${tw `
-sm:text-6xl sm:py-16 text-4xl
-font-bold text-gray-700 sm:py-6
+sm:text-3xl
+font-black text-gray-700 
 `}
 `
 const A = styled.a`
@@ -15,15 +20,16 @@ color: black;
 text-decoration: none;
 `
 const Container = styled.div`
+
 display: grid;
 grid-template-columns: repeat(auto-fit, minmax(6em, 17em));
 grid-gap: 2em;
 justify-content: center;
 ${tw`
-px-8 sm:p-10 sm:mx-32 
-mb-10`}
+px-8 sm:p-12 sm:mt-16
+py-10`}
 @media (min-width: 640px) {
-  grid-template-columns: repeat(auto-fit, minmax(10em, 20em))
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 20rem))
 }
 
 `
@@ -33,14 +39,13 @@ display: grid;
 place-content: center;
 place-items: center;
 height: auto;
-${tw`shadow-md border border-gray-200
+${tw` border-2 border-gray-700
   cursor-pointer
   rounded-lg
   hover:shadow-sm
-  shadow-md 
+  shadow-xl 
   bg-white 
   pl-4
-  border border-gray-300 border-2
  
 
 `}
@@ -148,11 +153,12 @@ ${tw ` m-1 py-1 px-2 rounded-lg shadow-sm bg-gray-400 bg-opacity-25  text-center
 `
 
 
+
 export default function Home({allPokemon}) {
   return (
 
       <Layout>
-        <HeadingDiv><h1>The Kanto Pokedex</h1></HeadingDiv>
+        <Top><HeadingDiv>The Kanto Pokedex</HeadingDiv></Top>
         <Container>
           {console.log(allPokemon)}
           {allPokemon.map((p, i) => <Link href='/details/[id]' as={`details/${i+1}`} key={p.name}><A><PokeCard p={p}  id={i+1}/></A></Link>)}

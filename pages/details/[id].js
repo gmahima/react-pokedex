@@ -5,8 +5,9 @@ import tw from 'twin.macro'
 
 //----------------------X---------STYLED-----------X-----------------
 
-const Navbar = styled.div`
-${tw`bg-gray-700 h-12`}
+const Top = styled("div")`
+
+${tw`bg-gray-300 w-full h-32 flex-col`}
 `
 
 const Heading = styled.h1`
@@ -16,13 +17,13 @@ ${tw` border-b font-bold text-4xl bg-gray-700 text-gray-100 rounded-t-lg p-3 w-f
 
 const Attacks = styled.div`
   
-  ${tw`ml-10 rounded-lg shadow-xl w-1/3 bg-gray-100 self-end`}
+  ${tw`mt-5 sm:ml-10 rounded-lg shadow-xl sm:w-1/3 bg-gray-100 self-center w-4/5`}
 
 
 }
 `
 const Content = styled.div`
-${tw`flex items-center justify-center py-10`}
+${tw`flex items-center justify-center py-10 sm:flex-row flex-col sm:m-0 sm:px-0  items-center justify-center `}
 `
 const Info = styled.span`
 ${tw`text-gray-700   m-1 p-1 rounded-lg text-sm hover:shadow-sm  border border-gray-300 cursor-default`}
@@ -38,7 +39,7 @@ ${tw`w-full h-full`}
 `
 const ImgDiv = styled.div`
 
-  ${tw`w-2/5 h-full bg-gray-500 bg-opacity-25 shadow-inner rounded-lg flex justify-center mb-3`}
+  ${tw`w-3/5 sm:w-2/5 h-full bg-gray-500 bg-opacity-25 shadow-inner rounded-lg flex justify-center mb-3`}
 `
 const MainCardInfo= styled.div`
 justify-self: center;
@@ -55,7 +56,7 @@ const DataDiv=styled.div`
 `
 const MainCard = styled.div`
 
-${tw`border-gray-300 rounded-lg text-white border-8  py-5 bg-gray-100 w-1/3 flex flex-col justify-around items-center shadow-2xl`}
+${tw`border-gray-300 rounded-lg text-white border-8  py-5 bg-gray-100 sm:w-1/3 flex flex-col justify-around items-center shadow-2xl`}
 `
 
 const NameSpan=styled.span`
@@ -87,6 +88,7 @@ export default function Details({data, id}) {
   return (
 
     <Layout>
+      <Top />
       <Content>
           <MainCard type={(data.types[0].type.name)}>
 
