@@ -2,12 +2,24 @@ import Layout from '../../components/Layout'
 import {getIds, getPokemonDetails} from '../../lib/data'
 import styled from 'styled-components'
 import tw from 'twin.macro'
+import Link from 'next/link'
 
 //----------------------X---------STYLED-----------X-----------------
-
 const Top = styled("div")`
 
-${tw`bg-gray-300 w-full h-32 flex-col`}
+${tw` w-full h-10 sm:h-20 flex items-center justify-center  border border-b  border-gray-300 bg-gray-100 `}
+
+`
+
+
+const Nav= styled.h1`
+${tw `
+sm:text-xl
+font-thin text-gray-700 border mr-auto rounded-lg ml-3 px-2 hover:cursor-pointer hover:bg-gray-300 bg-gray-400
+`}
+`
+const Main=styled.h1`
+${tw`sm:text-3xl mr-auto font-black text-gray-700`}
 `
 
 const Heading = styled.h1`
@@ -17,13 +29,13 @@ ${tw` border-b font-bold text-4xl bg-gray-700 text-gray-100 rounded-t-lg p-3 w-f
 
 const Attacks = styled.div`
   
-  ${tw`mt-5 sm:ml-10 rounded-lg shadow-xl sm:w-1/3 bg-gray-100 self-center w-4/5`}
+  ${tw`mt-5 sm:ml-10 rounded-lg shadow-lg sm:w-1/3 bg-gray-100 self-center w-4/5`}
 
 
 }
 `
 const Content = styled.div`
-${tw`flex items-center justify-center py-10 sm:flex-row flex-col sm:m-0 sm:px-0  items-center justify-center `}
+${tw`flex items-center justify-center py-10 sm:flex-row flex-col sm:m-0 sm:px-0  items-center justify-center`}
 `
 const Info = styled.span`
 ${tw`text-gray-700   m-1 p-1 rounded-lg text-sm hover:shadow-sm  border border-gray-300 cursor-default`}
@@ -56,7 +68,7 @@ const DataDiv=styled.div`
 `
 const MainCard = styled.div`
 
-${tw`border-gray-300 rounded-lg text-white border-8  py-5 bg-gray-100 sm:w-1/3 flex flex-col justify-around items-center shadow-2xl`}
+${tw`border-gray-300 rounded-lg text-white border-8  py-5 bg-gray-100 sm:w-1/3 flex flex-col justify-center items-center shadow-2xl`}
 `
 
 const NameSpan=styled.span`
@@ -88,7 +100,7 @@ export default function Details({data, id}) {
   return (
 
     <Layout>
-      <Top />
+      <Top><Link href="/"><Nav>PokeDex</Nav></Link><Main>PokéCard</Main></Top>
       <Content>
           <MainCard type={(data.types[0].type.name)}>
 
