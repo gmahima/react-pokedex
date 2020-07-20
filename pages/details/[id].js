@@ -7,7 +7,7 @@ import tw from 'twin.macro'
 const Container = styled.div`
 
 display:grid;
-grid-template-columns: 1fr 1.3fr 1fr 1fr;
+grid-template-columns: 1.3fr 1.7fr 1.3fr 0.7fr;
 grid-template-rows:  9rem 1fr 5rem;
 grid-auto-flow: row;
 column-gap: 1rem;
