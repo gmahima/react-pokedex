@@ -8,7 +8,8 @@ const Container = styled.div`
 
 display:grid;
 grid-template-columns: 1fr 1.3fr 1fr 1fr;
-grid-template-rows:  6rem 1fr 7rem;
+grid-template-rows:  9rem 1fr 5rem;
+grid-auto-flow: row;
 column-gap: 1rem;
 row-gap: 1rem;
 
@@ -113,8 +114,11 @@ ${tw`  text-lg font-semibold `}
 
 const Div = styled.div`
 ${tw` border border-red-600 min-h-full`}
-
-
+`
+const Top = styled(Div)`
+grid-row: 1/span 1;
+grid-column: 1/span 4;
+${tw`bg-yellow-300`}
 `
 //Main
 
@@ -124,11 +128,9 @@ export default function Details({data, id}) {
   return (
 
     <Layout>
-      <Navbar />
       <Container>
         
-        <Div/><Div/><Div/><Div/><Div/><Div/><Div/><Div/>
-          <Div />
+        <Top /><Div/><Div/><Div/><Div/><Div/><Div/>
           <Card main>
           <MainCard type={(data.types[0].type.name)}>
 
@@ -180,7 +182,7 @@ export default function Details({data, id}) {
             </Para>
           </Attacks>
         </Card>
-        <Div />
+        
         </Container>
 
     </Layout>
