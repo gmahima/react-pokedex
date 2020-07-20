@@ -8,12 +8,15 @@ const Container = styled.div`
 
 display:grid;
 grid-template-columns: 1fr 1.3fr 1fr 1fr;
-grid-template-rows:  7rem 1fr 10rem;
+grid-template-rows:  6rem 1fr 7rem;
 column-gap: 1rem;
 row-gap: 1rem;
 
-${tw`sm:h-screen sm:overflow-hidden`}
+${tw` sm:h-screen sm:overflow-hidden m-0 p-0`}
 
+`
+const Navbar = styled.div`
+${tw`bg-gray-700 h-12`}
 `
 const Card = styled.div`
 ${tw`m-0 p-0   rounded-lg shadow-xl `}
@@ -55,7 +58,7 @@ const Attacks = styled.div`
 }
 `
 const Info = styled.span`
-${tw`text-gray-700   m-1 p-1 rounded-lg text-sm `}
+${tw`text-gray-700   m-1 p-1 rounded-lg text-sm hover:shadow-sm  border border-gray-300 cursor-default`}
 
 `
 const Para = styled.p`
@@ -64,7 +67,7 @@ ${tw`m-4 flex flex-wrap mt-16 pt-8 items-center`}
 //ATTACKS!!!!!
 //Main
 const Img = styled.img`
-${tw`w-1/2 h-full`}
+${tw``}
 `
 const ImgDiv = styled.div`
   justify-self: center;
@@ -121,8 +124,9 @@ export default function Details({data, id}) {
   return (
 
     <Layout>
+      <Navbar />
       <Container>
-
+        
         <Div/><Div/><Div/><Div/><Div/><Div/><Div/><Div/>
           <Div />
           <Card main>
