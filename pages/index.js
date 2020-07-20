@@ -30,6 +30,9 @@ mb-10`}
 
 const Card = styled.div`
 display: grid;
+place-content: center;
+place-items: center;
+height: auto;
 ${tw`shadow-md border border-gray-200
   cursor-pointer
   rounded-lg
@@ -38,6 +41,7 @@ ${tw`shadow-md border border-gray-200
   bg-white 
   pl-4
   border border-gray-300 border-2
+ 
 
 `}
 @media(min-width: 640px) {

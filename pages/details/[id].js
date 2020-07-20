@@ -8,60 +8,37 @@ import tw from 'twin.macro'
 const Navbar = styled.div`
 ${tw`bg-gray-700 h-12`}
 `
-const Card = styled.div`
-${tw`m-0 p-0   rounded-lg shadow-xl `}
-  grid-row-start: 2;
-  grid-row-end: span 1;
 
-  
-  ${props => {
-    if(props.attacks) {
-      return (tw`sm:overflow-hidden sm:relative`)
-    }
-    if(props.main) {
-      return (`grid-column: 2/span 1`)
-    }
-  }}
-  ${
-    props => {
-      if(props.attacks) {
-        return (`grid-column: 3/span 1`)
-      }
-    }
-  }
-
-
-`
 const Heading = styled.h1`
-${tw` border-b font-bold text-4xl bg-gray-700 text-gray-100 sm:absolute rounded-t-lg p-3 w-full`}
+${tw` border-b font-bold text-4xl bg-gray-700 text-gray-100 rounded-t-lg p-3 w-full`}
 `
 // background-image: linear-gradient(to bottom right, aqua, yellow); ATTACKS!!!!!
 
 const Attacks = styled.div`
-
-  grid-row-start: 2;
-  grid-row-end: span 1;
   
-  ${tw`overflow-visible sm:overflow-y-auto rounded-lg shadow-xl h-full bg-gray-100`}
+  ${tw`ml-10 rounded-lg shadow-xl w-1/3 bg-gray-100 self-end`}
 
 
 }
+`
+const Content = styled.div`
+${tw`flex items-center justify-center py-10`}
 `
 const Info = styled.span`
 ${tw`text-gray-700   m-1 p-1 rounded-lg text-sm hover:shadow-sm  border border-gray-300 cursor-default`}
 
 `
 const Para = styled.p`
-${tw`m-4 flex flex-wrap mt-16 pt-8 items-center`}
+${tw`m-4 flex flex-wrap items-center`}
 `
 //ATTACKS!!!!!
 //Main
 const Img = styled.img`
-${tw``}
+${tw`w-full h-full`}
 `
 const ImgDiv = styled.div`
-  justify-self: center;
-  ${tw`w-1/2 min-h-full bg-gray-500 bg-opacity-25 shadow-inner rounded-lg flex justify-center`}
+
+  ${tw`w-2/5 h-full bg-gray-500 bg-opacity-25 shadow-inner rounded-lg flex justify-center mb-3`}
 `
 const MainCardInfo= styled.div`
 justify-self: center;
@@ -78,10 +55,7 @@ const DataDiv=styled.div`
 `
 const MainCard = styled.div`
 
-display: grid;
-grid-gap: 1rem;
-grid-template-rows:0.4fr 1fr;
-${tw`border-gray-300 rounded-lg text-white border-8 min-h-full py-5 bg-gray-100 `}
+${tw`border-gray-300 rounded-lg text-white border-8  py-5 bg-gray-100 w-1/3 flex flex-col justify-around items-center shadow-2xl`}
 `
 
 const NameSpan=styled.span`
@@ -102,13 +76,9 @@ ${tw`  text-lg font-semibold `}
 
 
 const Div = styled.div`
-${tw` border border-red-600 min-h-full`}
+${tw` border border-red-600 `}
 `
-const Top = styled(Div)`
-grid-row: 1/span 1;
-grid-column: 1/span 4;
-${tw`bg-yellow-300`}
-`
+
 //Main
 
 //----------------------X---------STYLED-----------X-----------------
@@ -117,9 +87,7 @@ export default function Details({data, id}) {
   return (
 
     <Layout>
-        
-        <Top /><Div/><Div/><Div/><Div/><Div/><Div/>
-          <Card main>
+      <Content>
           <MainCard type={(data.types[0].type.name)}>
 
            <ImgDiv>
@@ -160,17 +128,14 @@ export default function Details({data, id}) {
             
           </MainCardInfo> 
           </MainCard>
-      
-        </Card>
-        <Card attacks>
+
           <Attacks >
             <Heading>Attacks</Heading>
             <Para>
               {data.moves.map((m,i) => <Info key={i.toString()}>{m.move.name}</Info>)}   
             </Para>
           </Attacks>
-        </Card>
-
+        </Content >
     </Layout>
   )
 }
