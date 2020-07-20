@@ -88,10 +88,6 @@ ${tw`  text-lg font-semibold `}
 `
 
 
-const Div = styled.div`
-${tw` border border-red-600 `}
-`
-
 //Main
 
 //----------------------X---------STYLED-----------X-----------------
@@ -102,8 +98,8 @@ export default function Details({data, id}) {
     <Layout>
       <Top><Link href="/"><Nav>PokeDex</Nav></Link><Main>PokéCard</Main></Top>
       <Content>
+        
           <MainCard type={(data.types[0].type.name)}>
-
            <ImgDiv>
             <Img src={`/sprites/${id}.png`} />
           </ImgDiv> 
@@ -113,9 +109,7 @@ export default function Details({data, id}) {
               <NameSpan>{data.name}</NameSpan>
               <NameSpan><sub>xp.</sub>{data.base_experience}</NameSpan>
             </Name>
-            <DataDiv>
-
-            
+            <DataDiv>            
             <Data>
               <KeySpan>order</KeySpan>
               <ValSpan>{data.order}</ValSpan>
