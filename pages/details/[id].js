@@ -44,7 +44,7 @@ ${tw`m-0 p-0   rounded-lg shadow-xl `}
 
 `
 const Heading = styled.h1`
-${tw` border-b font-bold text-4xl bg-blue-700 text-gray-100 sm:absolute rounded-t-lg p-3 w-full`}
+${tw` border-b font-bold text-4xl bg-gray-700 text-gray-100 sm:absolute rounded-t-lg p-3 w-full`}
 `
 // background-image: linear-gradient(to bottom right, aqua, yellow); ATTACKS!!!!!
 
@@ -79,7 +79,7 @@ justify-self: center;
   ${tw` bg-gray-500 bg-opacity-25 shadow-inner rounded-lg w-11/12 p-3 `}
 `
 const Name = styled.div`
-${tw`flex justify-between bg-blue-700 text-gray-100 px-2`}
+${tw`flex justify-between bg-gray-700 text-gray-100 px-2`}
 `
 const Data=styled.div`
 ${tw`flex justify-between text-gray-700 border-b border-gray-700 mb-4`}
@@ -92,7 +92,7 @@ const MainCard = styled.div`
 display: grid;
 grid-gap: 1rem;
 grid-template-rows:0.4fr 1fr;
-${tw`border-gray-300 rounded-lg text-white border-8 min-h-full py-5 bg-blue-100 `}
+${tw`border-gray-300 rounded-lg text-white border-8 min-h-full py-5 bg-gray-100 `}
 `
 
 const NameSpan=styled.span`
