@@ -92,7 +92,7 @@ const MainCard = styled.div`
 display: grid;
 grid-gap: 1rem;
 grid-template-rows:0.4fr 1fr;
-${tw`border-gray-300 rounded-lg text-white border-8 min-h-full py-5 bg-gray-100 `}
+${tw`border-gray-300 rounded-lg text-white border-8 min-h-full py-5 bg-blue-100 `}
 `
 
 const NameSpan=styled.span`
