@@ -1,8 +1,17 @@
 import {getAllPokemon} from '../lib/data'
 import Layout from '../components/Layout'
-import styled from 'styled-components'
+import styled, {css, keyframes} from 'styled-components'
 import Link from 'next/link'
 import tw from 'twin.macro'
+
+const a = keyframes`
+0%, 100%{
+  opacity: 1;
+}
+50% {
+  opacity: 0;
+}
+`
 
 const Top = styled("div")`
 
@@ -57,6 +66,28 @@ ${tw` border-2 border-gray-700
 
 }
 `
+const variants = css`${props => {
+console.log(props.type)
+  switch(props.type) {
+    case 'grass': return (tw`bg-green-100`)
+    case 'fire': return (tw`bg-orange-200`)
+    case 'water': return (tw`bg-indigo-200`)
+    case 'bug': return (tw`bg-teal-200`)
+    case 'poison': return (tw`bg-purple-300`)
+    case 'flying': return (tw`bg-blue-200`)
+    case 'electric': return (tw`bg-yellow-400`)
+    case 'fairy': return(tw`bg-pink-300`)
+    case 'ground': return(tw`bg-yellow-600`)
+    case 'psychic' : return (tw`bg-purple-500`)
+    case 'fighting' : return (tw`bg-red-600`)
+    case 'rock' : return (tw`bg-gray-400`)
+    case 'ghost': return (tw`bg-gray-300`)
+    case 'dragon': return (tw`bg-red-100`)        
+
+    default: return (tw`bg-gray-100`)
+  }
+}}`
+
 // ${props => {
 
 //   switch(props.type) {
@@ -77,28 +108,8 @@ const Img = styled.img`
 ${tw`
  w-full rounded-full
 `}
-${props => {
-
-      switch(props.type) {
-        case 'grass': return (tw`bg-green-200`)
-        case 'fire': return (tw`bg-orange-200`)
-        case 'water': return (tw`bg-indigo-200`)
-        case 'bug': return (tw`bg-teal-200`)
-        case 'poison': return (tw`bg-purple-300`)
-        case 'flying': return (tw`bg-blue-200`)
-        case 'electric': return (tw`bg-yellow-400`)
-        case 'fairy': return(tw`bg-pink-300`)
-        case 'ground': return(tw`bg-yellow-600`)
-        case 'psychic' : return (tw`bg-purple-500`)
-        case 'fighting' : return (tw`bg-red-600`)
-        case 'rock' : return (tw`bg-gray-400`)
-        case 'ghost': return (tw`bg-gray-300`)
-        case 'dragon': return (tw`bg-red-100`)        
-
-        default: return (tw`bg-gray-100`)
-      }
-    }
-  }
+${variants}
+# animation: ${a} 1s infinite;
 `
 // const Card2 = styled.div`
 //   display: grid;
