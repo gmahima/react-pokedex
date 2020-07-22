@@ -6,20 +6,26 @@ import Link from 'next/link'
 
 //----------------------X---------STYLED-----------X-----------------
 const Top = styled("div")`
+display: grid;
 
-${tw` w-full h-10 sm:h-20 flex items-center justify-center  border border-b  border-gray-300 bg-gray-100 `}
 
+${tw` w-full h-10 sm:h-20  border border-b  border-gray-300 bg-gray-100 `}
+grid-template-columns: auto 1fr;
+justify-content: center;
+align-content: center;
+justify-items: center;
+align-items: center;
 `
 
 
 const Nav= styled.h1`
 ${tw `
 sm:text-sm
-font-thin text-gray-700 border mr-auto rounded-lg ml-3 px-2 py-2 hover:cursor-pointer hover:bg-gray-300 bg-gray-400
+font-thin text-gray-700 border rounded-lg ml-3 px-2 py-2 hover:cursor-pointer hover:bg-gray-300 bg-gray-400
 `}
 `
 const Main=styled.h1`
-${tw`sm:text-3xl mr-auto font-black text-gray-700`}
+${tw`sm:text-3xl font-black text-gray-700`}
 `
 
 const Heading = styled.h1`
