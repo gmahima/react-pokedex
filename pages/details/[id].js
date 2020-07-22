@@ -35,13 +35,13 @@ ${tw` border-b font-bold text-4xl bg-gray-700 text-gray-100 rounded-t-lg p-3 w-f
 
 const Attacks = styled.div`
   
-  ${tw`mt-5 sm:ml-10 rounded-lg shadow-lg sm:w-1/3 bg-gray-100 self-center w-4/5`}
+  ${tw`mt-5 sm:ml-10 rounded-lg shadow-lg bg-gray-100 self-center max-w-2xl`}
 
 
 }
 `
 const Content = styled.div`
-${tw`flex items-center justify-center py-10 sm:flex-row flex-col sm:m-0 sm:px-0  items-center justify-center`}
+${tw`flex items-center justify-center py-10 sm:flex-row flex-col sm:m-0 sm:px-0`}
 `
 const Info = styled.span`
 ${tw`text-gray-700   m-1 p-1 rounded-lg text-sm hover:shadow-sm  border border-gray-300 cursor-default`}
@@ -108,8 +108,8 @@ export default function Details({data, id}) {
       <Top><Link href="/"><Nav>back to PokeDex</Nav></Link><Main>PokéCard</Main></Top>
       <Content>
         
-          <MainCard type={(data.types[0].type.name)}>
-           <ImgDiv>
+        <MainCard type={(data.types[0].type.name)}>
+          <ImgDiv>
             <Img src={`/sprites/${id}.png`} />
           </ImgDiv> 
           <MainCardInfo>
@@ -119,40 +119,37 @@ export default function Details({data, id}) {
               <NameSpan><sub>xp.</sub>{data.base_experience}</NameSpan>
             </Name>
             <DataDiv>            
-            <Data>
-              <KeySpan>order</KeySpan>
-              <ValSpan>{data.order}</ValSpan>
-            </Data>
-            <Data>
-              <KeySpan>types</KeySpan>
-              <ValSpan>{data.types.map(t => <span>{t.type.name}</span>)}</ValSpan>
-            </Data>
-            <Data>
-              <KeySpan>abilities</KeySpan>
-              <ValSpan>{data.abilities.map(a => <span>{a.ability.name}</span>)}</ValSpan>
-            </Data>
-            <Data>
-              <KeySpan>height</KeySpan>
-              <ValSpan>{data.height}</ValSpan>
-            </Data>
-            <Data>
-              <KeySpan>weight</KeySpan>
-              <ValSpan>{data.weight}</ValSpan>
-            </Data>
+              <Data>
+                <KeySpan>order</KeySpan>
+                <ValSpan>{data.order}</ValSpan>
+              </Data>
+              <Data>
+                <KeySpan>types</KeySpan>
+                <ValSpan>{data.types.map(t => <span>{t.type.name}</span>)}</ValSpan>
+              </Data>
+              <Data>
+                <KeySpan>abilities</KeySpan>
+                <ValSpan>{data.abilities.map(a => <span>{a.ability.name}</span>)}</ValSpan>
+              </Data>
+              <Data>
+                <KeySpan>height</KeySpan>
+                <ValSpan>{data.height}</ValSpan>
+              </Data>
+              <Data>
+                <KeySpan>weight</KeySpan>
+                <ValSpan>{data.weight}</ValSpan>
+              </Data>
             </DataDiv>
-            
-              
-            
           </MainCardInfo> 
-          </MainCard>
+        </MainCard>
 
-          <Attacks >
-            <Heading>Attacks</Heading>
-            <Para>
-              {data.moves.map((m,i) => <Info key={i.toString()}>{m.move.name}</Info>)}   
-            </Para>
-          </Attacks>
-        </Content >
+        <Attacks >
+          <Heading>Attacks</Heading>
+          <Para>
+            {data.moves.map((m,i) => <Info key={i.toString()}>{m.move.name}</Info>)}   
+          </Para>
+        </Attacks>
+      </Content >
     </Layout>
   )
 }
