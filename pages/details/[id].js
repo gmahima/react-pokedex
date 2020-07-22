@@ -14,8 +14,8 @@ ${tw` w-full h-10 sm:h-20 flex items-center justify-center  border border-b  bor
 
 const Nav= styled.h1`
 ${tw `
-sm:text-xl
-font-thin text-gray-700 border mr-auto rounded-lg ml-3 px-2 hover:cursor-pointer hover:bg-gray-300 bg-gray-400
+sm:text-sm
+font-thin text-gray-700 border mr-auto rounded-lg ml-3 px-2 py-2 hover:cursor-pointer hover:bg-gray-300 bg-gray-400
 `}
 `
 const Main=styled.h1`
@@ -72,7 +72,7 @@ ${tw`border-gray-300 rounded-lg text-white border-8  py-5 bg-gray-100 sm:w-1/3 f
 `
 
 const NameSpan=styled.span`
-${tw`uppercase  text-2xl font-black`}
+${tw`uppercase  text-xl font-black py-2 px-4`}
 sub {
 
   ${tw` lowercase`}
@@ -81,10 +81,13 @@ sub {
   
 `
 const KeySpan=styled.span`
-${tw`uppercase  text-lg font-semibold`}
+${tw`uppercase  text-sm font-bold`}
 `
 const ValSpan=styled.span`
-${tw`  text-lg font-semibold `}
+${tw`  text-sm font-bold `}
+span {
+  ${tw `px-1`}
+}
 `
 
 
@@ -96,7 +99,7 @@ export default function Details({data, id}) {
   return (
 
     <Layout>
-      <Top><Link href="/"><Nav>PokeDex</Nav></Link><Main>PokéCard</Main></Top>
+      <Top><Link href="/"><Nav>back to PokeDex</Nav></Link><Main>PokéCard</Main></Top>
       <Content>
         
           <MainCard type={(data.types[0].type.name)}>
@@ -116,11 +119,11 @@ export default function Details({data, id}) {
             </Data>
             <Data>
               <KeySpan>types</KeySpan>
-              <ValSpan>{data.types.map(t => "   " + t.type.name)}</ValSpan>
+              <ValSpan>{data.types.map(t => <span>{t.type.name}</span>)}</ValSpan>
             </Data>
             <Data>
               <KeySpan>abilities</KeySpan>
-              <ValSpan>{data.abilities.map(a => "   " + a.ability.name)}</ValSpan>
+              <ValSpan>{data.abilities.map(a => <span>{a.ability.name}</span>)}</ValSpan>
             </Data>
             <Data>
               <KeySpan>height</KeySpan>
