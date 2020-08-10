@@ -82,16 +82,7 @@ console.log(props.type)
   }
 }}`
 
-// ${props => {
 
-//   switch(props.type) {
-//     case 'grass': return (tw`hover:bg-green-100`)
-//     case 'fire': return (tw`hover:bg-red-100`)
-//     case 'water': return (tw`hover:bg-blue-100`)
-//     case 'bug': return (tw`hover:bg-teal-100`)
-//     default: return (tw`hover:bg-gray-100`)
-//   }
-// }
 
 const ImgDiv = styled.div`
 ${tw`
